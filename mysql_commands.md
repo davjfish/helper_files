@@ -1,7 +1,6 @@
 # MySQL Commands
--Access monitor: `mysql -u [username] -p;` (will prompt for password)
-
-Show all databases: `show databases;`
+- Access monitor: `mysql -u [username] -p;` (will prompt for password)
+- Show all databases: `show databases;`
 
 Access database: `mysql -u [username] -p [database]` (will prompt for password)
 
