@@ -10,6 +10,8 @@
 - view progress on a cp operation (using rsync): `rsync -avzP copy_src copy_dst`  
 - nohup [command to execute from ssh that will be orphaned and continue running even when session is closed]  
 - create a soft link: `ln -s /opt/foo /usr/bin/bar`
+- `sudo apt-get update` updates all packages
+- `sudo apt-get upgrade` upgrades all packages
 
 ## SYSTEM / FILE SYSTEM INFO
 - `df -h` check disk space available on all mounted disks
@@ -64,7 +66,7 @@
 - sudo mysqladmin [-p -u root version] # -p = prompt for password; -u use user = root; but you can also jsut run mysqladmin for list of commands]
 
 ## Users and Groups
-
+- `who -H` see who is currently logged in
 - `cat /etc/passwd | less` view all users on sys
 - `sudo adduser <newusername>` add new user
 - `sudo passwd <username>` change user password
