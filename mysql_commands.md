@@ -35,6 +35,7 @@
 - field1 NOT IN (value1, value2)
 - condition1 AND condition2
 - condition1 OR condition2
+- `IF(expr1,expr2,expr3)` If expr1 is TRUE (expr1 <> 0 and expr1 <> NULL), IF() returns expr2. Otherwise, it returns expr3.
 
 ## Data Manipulation
 - INSERT INTO table1 (field1, field2, ...) VALUES (value1, value2, ...)
@@ -109,6 +110,8 @@
 - ALTER TABLE old_name RENAME new_name;
 ### reset autonumber:
 - ALTER TABLE [table_name] AUTO_INCREMENT=[new_number];
+### add autonumber to primary KEY
+- ALTER TABLE [table_name] MODIFY [fieldname] smallint(10) AUTO_INCREMENT;
 
 
 ## Keys
@@ -116,6 +119,10 @@
 - CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2 (t2_field1, t2_field2))
 - ALTER TABLE table ADD PRIMARY KEY (field);
 - ALTER TABLE table ADD CONSTRAINT constraint_name PRIMARY KEY (field, field2);
+### add foreign key constraint
+- ALTER TABLE [orders] ADD CONSTRAINT fk_item_orders FOREIGN KEY (item_id) REFERENCES items(id);
+
+
 
 ## Create/modify/drop view
 - CREATE VIEW view AS SELECT ... FROM table WHERE ...
@@ -143,8 +150,24 @@
 - MEDIUMINT (3o: +-16 000 000)
 - INT       (4o: +-2 000 000 000)
 - BIGINT    (8o: +-9.10^18)
-- INT NOT NULL auto_increment PRIMARY KEY -- auto-counter for PK
+- Precise interval: -(2^(8*N-1)) -> (2^8*N)-1
+- FLOAT(M,D) DOUBLE(M,D) FLOAT(D=0->53)
+- TIME (HH:MM) YEAR (AAAA) DATE (AAAA-MM-JJ) DATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)
+- TIMESTAMP (like DATETIME, but 1970->2038, compatible with Unix)
 - VARCHAR (single-line; explicit size)  
 - TEXT (multi-lines; max size=65535)
 - BLOB (binary; max size=65535)
 - ENUM ('value1', 'value2', ...) -- (default NULL, or <nowiki>''</nowiki> if NOT NULL)
+
+
+## Triggers
+- before insert trigger:
+```
+CREATE TRIGGER trigger_name_before_insert
+    BEFORE INSERT
+    ON [schema.]table1
+    FOR EACH ROW
+BEGIN
+  set new.[field1] = new.[field2] ...;
+END
+```
