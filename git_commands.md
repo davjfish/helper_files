@@ -73,3 +73,15 @@ git commit -m "fixed untracked files"
 - go to the root dir of the project where you want to import the submodule and type" `git submodule add [URL-to-repo] [optional path to dir]`
 - then add / commit changes, both within the main repo and the submodule dir
 - after adding a submodule in a local repo, when you try to pull the changes to another local repo, it will only import the root submodule dir. In order to configure, use the following `git submodule update --init --recursive`
+
+## undo a "git add"
+- `git reset` to reset entire repository
+- `git reset [filename]` to unadd a file
+
+
+## Branches
+- `git branch` show which branch you are on
+- `git branch [branchname]` create a branch
+- `git checkout [branchname]` switch into a branch
+- from the master branch... `git merge [branchname]` to merge the changes
+- `git push origin [branchname]` push up a branch to the remote repo

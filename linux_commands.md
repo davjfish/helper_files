@@ -35,9 +35,10 @@
 - `sudo chgrp <groupname> <filename>`
 
 ## MOUNTING AND UNMOUNTING #
-- `sudo mount /dev/sdb1 /mnt/sdb` # mount a file system to a location on the root disk; note: mnt folder must be created beforehand
+- `sudo fdisk -l` first, find the disk you are looking to mount
+- `sudo mount /dev/sdb1 /mnt/sdb`  mount a file system to a location on the root disk; note: mnt folder must be created beforehand
 - `sudo umount /dev/sdb1` # unmount a disk
-- `sudo blkid` # get uuid of each drive
+- `sudo blkid`  get uuid of each drive
 - To automount a drive
   - `sudo cp /etc/fstab /etc/fstab.old`
   - `sudo nano /etc/fstab`
@@ -53,6 +54,14 @@
 - sudo smbpasswd -a <username> # add a user (must already exist on server)
 - sudo nano /etc/samba/smb.conf # edit the config file (and specify name, user access, etc)
 - sudo service smbd restart # restart service
+- example samba share:
+```
+[name_of_share_folder]
+    comment = Samba on Ubuntu
+    path = /home/username/sambashare
+    read only = no
+    browsable = yes
+```
 
 ### Apache
 - apache2 -v # determine version
@@ -80,3 +89,8 @@
 - `groups [username]` list all the groups that a particular user belongs to
 - `sudo addgroup <groupname>` create a new group
 - `sudo groupdel <groupname>` delete a group
+- `su root` switch user to root (BE CAREFUL)
+
+## Scheduling Processes
+-`sudo crontab -l` view current crontab
+-`sudo crontab -e` edit current crontab
