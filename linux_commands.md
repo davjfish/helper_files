@@ -47,20 +47,39 @@
 
 ## Networking
 - sudo netstat -tlnp #check to see which applicaiton is listening to which port
+- `sudo arp-scan --interface=ens1 --localnet` scan of local network; be sure to first install arp-scan. use ifconfig to find out interface name
 
 ## Services
+
+- show list of all services `service --status-all`
+
 ### Samba
 - service samba status # check status
+- script to add user to linux and samba together
+```
+USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
+```
 - sudo smbpasswd -a <username> # add a user (must already exist on server)
 - sudo nano /etc/samba/smb.conf # edit the config file (and specify name, user access, etc)
 - sudo service smbd restart # restart service
-- example samba share:
+- `sudo pdbedit -L -v` list all samba users
+- example samba share - any samba user will be able to access this:
 ```
 [name_of_share_folder]
     comment = Samba on Ubuntu
     path = /home/username/sambashare
     read only = no
     browsable = yes
+    guest ok = no
+```
+- another share config (restricted to list of users)
+```
+[Crab]
+   path = /mnt/glfsci_inv/Crab
+   browseable = no
+   writeable = yes
+   guest ok = no
+   valid users = admin,wadee,surettet,boudreaus
 ```
 
 ### Apache
@@ -78,6 +97,10 @@
 - `who -H` see who is currently logged in
 - `cat /etc/passwd | less` view all users on sys
 - `sudo adduser <newusername>` add new user
+- script to change username and home dir of existing user
+```
+newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername && sudo usermod -d /home/$newHomeDir -m $newUsername
+```
 - `sudo passwd <username>` change user password
 - `deluser <username>` delete a users
 - `sudo adduser <username> <groupname>` add a user to a group
