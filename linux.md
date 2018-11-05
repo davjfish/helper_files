@@ -21,6 +21,7 @@
 - `sudo fdisk /dev/sb[x]` will open fdisk to work in sd[x]
 - `sudo parted` a more powerful and advanced tool for managing partitions etc.
 - `sudo mkfs.ext4 /dev/sd[x][#]` make a file system on a disk partition
+- `du -sh [filelocation1] [filelocation2] ...| sort -h` view list of dirs and their sizes; sort by file size and summarize dirs
 
 ### TIME AND DATE
 - `date` view sys date and time

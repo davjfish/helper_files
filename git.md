@@ -78,6 +78,8 @@ git commit -m "fixed untracked files"
 - `git reset` to reset entire repository
 - `git reset [filename]` to unadd a file
 
+## reset a file to the last commit
+- 'git checkout [filename]'
 
 ## Branches
 - `git branch` show which branch you are on
