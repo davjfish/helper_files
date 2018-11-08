@@ -9,7 +9,7 @@
 - search for term within output (only bring up relevant lines): `some_command -options | grep "search_term"`
 - view progress on a cp operation (using rsync): `rsync -avzP copy_src copy_dst`  
 - nohup [command to execute from ssh that will be orphaned and continue running even when session is closed]  
-- create a soft link: `ln -s /opt/foo /usr/bin/bar`
+- create a soft link: `ln -s /target/file /my/link/file`
 - `sudo apt-get update` updates all packages
 - `sudo apt-get upgrade` upgrades all packages
 
@@ -29,6 +29,9 @@
 - `sudo timedatectl set-timezone name_from_above_list` e.g. America/Moncton
 - `sudo timedatectl set-ntp on` turn on timesyncd
 - `sudo date mmddyyhhMM.ss` set sys date and time manually
+- To set the timezone of your system clock do the following: `cp /usr/share/zoneinfo/Canada/Atlantic /etc/localtime`
+- Set date from the command line: `date +%Y%m%d -s "20120418"`
+- Set time from the command line: `date +%T -s "11:14:00"`
 
 ## FILE MANAGEMENT
 - `sudo chmod 777 <filename>` change the permissions of a file or folder

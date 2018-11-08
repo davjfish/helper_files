@@ -87,3 +87,6 @@ git commit -m "fixed untracked files"
 - `git checkout [branchname]` switch into a branch
 - from the master branch... `git merge [branchname]` to merge the changes
 - `git push origin [branchname]` push up a branch to the remote repo
+- `git log --graph --decorate --oneline` visualize git history
+- `git branch -d branch_name` delete a branch locally
+- `git push --delete <remote_name> <branch_name>` delete a branch on the remote
