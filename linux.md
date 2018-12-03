@@ -34,7 +34,7 @@
 - Set time from the command line: `date +%T -s "11:14:00"`
 
 ## FILE MANAGEMENT
-- `sudo chmod 777 <filename>` change the permissions of a file or folder
+- `sudo chmod 777 <filename>` change the permissions of a file or folder or 'chmod u=rwx,g=rx,o=r <myfile>'
 - `sudo chown <username> <filename>`
 - `sudo chgrp <groupname> <filename>`
 
