@@ -90,3 +90,10 @@ git commit -m "fixed untracked files"
 - `git log --graph --decorate --oneline` visualize git history
 - `git branch -d branch_name` delete a branch locally
 - `git push --delete <remote_name> <branch_name>` delete a branch on the remote
+
+## do a git pull and overwrite any files in the local repo
+```
+git fetch --all
+git reset --hard origin/master
+
+```
