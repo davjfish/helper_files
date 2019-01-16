@@ -12,6 +12,8 @@
 - create a soft link: `ln -s /target/file /my/link/file`
 - `sudo apt-get update` updates all packages
 - `sudo apt-get upgrade` upgrades all packages
+- show all installed packages `apt list --installed`
+- read mail for user logged in `sudo less /var/mail/$(whoami)`
 
 ## SYSTEM / FILE SYSTEM INFO
 - `df -h` check disk space available on all mounted disks
@@ -22,6 +24,7 @@
 - `sudo parted` a more powerful and advanced tool for managing partitions etc.
 - `sudo mkfs.ext4 /dev/sd[x][#]` make a file system on a disk partition
 - `du -sh [filelocation1] [filelocation2] ...| sort -h` view list of dirs and their sizes; sort by file size and summarize dirs
+- `uname -m`
 
 ### TIME AND DATE
 - `date` view sys date and time

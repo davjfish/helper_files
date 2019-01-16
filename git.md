@@ -5,7 +5,8 @@
 git config --global user.name "[first last]"
 git config --global user.email "[email]"
 ```
-
+- store credentials in system `git config credential.helper store` you will run this and then the next time you enter credentials it will be stored for a while.
+- use `git config --unset credential.helper` to unstore. both above and this are for local repos
 ## Create a new repository
 ```
 git clone [repo URL]
@@ -80,6 +81,21 @@ git commit -m "fixed untracked files"
 
 ## reset a file to the last commit
 - 'git checkout [filename]'
+
+## To revert to a previous commit, ignoring any changes:
+`git reset --hard HEAD`
+
+## To force overwrite of local file with what's on origin/master
+- If you want to overwrite only one file:
+```
+git fetch
+git checkout origin/master <filepath>
+```
+- If you want to overwrite all changed files:
+```
+git fetch
+git reset --hard origin/master
+```
 
 ## Branches
 - `git branch` show which branch you are on
