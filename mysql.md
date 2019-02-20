@@ -130,7 +130,7 @@
 ## Privileges
 - CREATE USER '[user]'@'[host]' IDENTIFIED BY '[password]';
 - GRANT ALL PRIVILEGES ON base.* TO '[user]'@'[host]';
-- GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+- GRANT SELECT, INSERT, DELETE, UPDATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 - REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 - REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
 - SET PASSWORD = PASSWORD('new_pass')
@@ -142,7 +142,7 @@
 ### Flush privileges
 - FLUSH PRIVILEGES;
 ### To grant admin level privileges
-- GRANT ALL PRIVILEGES ON *.* TO "[username]"@"[host]" WITH GRANT OPTIONS;
+- GRANT ALL PRIVILEGES ON *.* TO "[username]"@"[host]" WITH GRANT OPTION;
 
 ## Main data types
 - TINYINT   (1o: -127+128)

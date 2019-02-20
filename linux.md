@@ -7,7 +7,7 @@
 - send output from command to a files: `some_command >> some_file.txt` # append output from command to a files  
 - paginate using a pager: `some_command -options | less`  
 - search for term within output (only bring up relevant lines): `some_command -options | grep "search_term"`
-- view progress on a cp operation (using rsync): `rsync -avzP copy_src copy_dst`  
+- view progress on a cp operation (using rsync): `rsync -avzP copy_src copy_dst` NOTE: assuming copy_src is a dir, there should be no trailing slash. Same for copy_dst  
 - nohup [command to execute from ssh that will be orphaned and continue running even when session is closed]  
 - create a soft link: `ln -s /target/file /my/link/file`
 - `sudo apt-get update` updates all packages

@@ -69,6 +69,11 @@ git add .
 git commit -m "fixed untracked files"
 ```
 
+## check to see which files were modified during a specific commit
+```
+git diff-tree --no-commit-id --name-only -r <commit-ish>
+```
+
 ## Submodules
 - create a unique repo for the Submodules
 - go to the root dir of the project where you want to import the submodule and type" `git submodule add [URL-to-repo] [optional path to dir]`
