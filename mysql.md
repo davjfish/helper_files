@@ -129,8 +129,10 @@
 
 ## Privileges
 - CREATE USER '[user]'@'[host]' IDENTIFIED BY '[password]';
-- GRANT ALL PRIVILEGES ON base.* TO '[user]'@'[host]';
-- GRANT SELECT, INSERT, DELETE, UPDATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+
+
+- GRANT ALL PRIVILEGES ON base.* TO '[user]'@'[host]'; (Best to use this one for Django users)
+- GRANT SELECT, INSERT, DELETE, UPDATE, CREATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 - REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 - REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
 - SET PASSWORD = PASSWORD('new_pass')

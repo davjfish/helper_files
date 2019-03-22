@@ -103,7 +103,7 @@ git reset --hard origin/master
 ```
 
 ## Branches
-- `git branch` show which branch you are on
+- `git branch` show which branch you are on and what 
 - `git branch [branchname]` create a branch
 - `git checkout [branchname]` switch into a branch
 - from the master branch... `git merge [branchname]` to merge the changes
@@ -111,6 +111,11 @@ git reset --hard origin/master
 - `git log --graph --decorate --oneline` visualize git history
 - `git branch -d branch_name` delete a branch locally
 - `git push --delete <remote_name> <branch_name>` delete a branch on the remote
+- `git checkout -b [branch] [remote]/[branch]` import a branch from the remote repo
+
+### Comparing Branches
+- `git diff --name-status master` compare current branch to master;
+- `git diff master..otherbranch > myDiffFile.diff` compare two branches and pipe to file; will only look at committed changes
 
 ## do a git pull and overwrite any files in the local repo
 ```
