@@ -112,6 +112,7 @@ git reset --hard origin/master
 - `git branch -d branch_name` delete a branch locally
 - `git push --delete <remote_name> <branch_name>` delete a branch on the remote
 - `git checkout -b [branch] [remote]/[branch]` import a branch from the remote repo
+- OR `git fetch --all` followed by `git checkout [branch_name]` 
 
 ### Comparing Branches
 - `git diff --name-status master` compare current branch to master;
