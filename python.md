@@ -39,3 +39,31 @@ with open('eggs.csv', 'rb') as csvfile:
      for row in spamreader:
          print(', '.join(row))
 ```
+
+
+## double for loop / Double Iteration in List Comprehension
+from: https://stackoverflow.com/questions/1198777/double-iteration-in-list-comprehension
+
+```
+# double for loop
+list_of_words = []
+for sentence in text:
+    for word in sentence:
+       list_of_words.append(word)
+
+# list comprehension with two iterations
+[word for sentence in text for word in sentence]
+```
+
+```
+# double for loop
+list_of_people = []
+for org in org_list:
+    for person in org.person_list:
+       list_of_people.append(person)
+
+# list comprehension with two iterations
+[person for org in org_list for person in person_list]
+```
+
+
