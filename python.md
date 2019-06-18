@@ -53,6 +53,9 @@ for sentence in text:
 
 # list comprehension with two iterations
 [word for sentence in text for word in sentence]
+
+[target_item for big_loop_iterable_item in big_loop_collection for target_item in big_loop_iterable_item]
+
 ```
 
 ```
@@ -63,7 +66,7 @@ for org in org_list:
        list_of_people.append(person)
 
 # list comprehension with two iterations
-[person for org in org_list for person in person_list]
+[person for org.person_list in org_list for person in person_list]
 ```
 
 
