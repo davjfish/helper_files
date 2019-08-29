@@ -89,6 +89,12 @@ USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
    valid users = admin,wadee,surettet,boudreaus
 ```
 
+### FTP
+- install `sudo apt install vsftpd`
+- config file `/etc/vsftpd.conf `
+
+
+
 ### Apache
 - apache2 -v # determine version
 - sudo service apache2 start
