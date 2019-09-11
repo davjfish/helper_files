@@ -123,3 +123,14 @@ git reset --hard origin/master
 git fetch --all
 git reset --hard origin/master
 ```
+
+### interact with another local repo
+- clone from a local repo:
+```
+git clone /path/to/local/repo
+```
+- pull from a local repo
+```
+git remote add repo_b /path/to/repository
+git pull repo_b master
+```

@@ -51,6 +51,8 @@
   - `sudo nano /etc/fstab`
   - insert this line into fstab: `UUID=<uuid> <pathtomount> <filesystem> defaults 0 0`
     - e.g., `UUID=fd812abd-359d-433e-a8ea-1367e312938f /mnt/backup ext4 defaults 0 0`
+ - mount a Windows share: `sudo mount.cifs //Windowshost_or_IP/Share /home/geek/Desktop/Windows-Share -o user=geek`. Just make sure you have 
+this installed `sudo apt install cifs-utils`
 
 ## Networking
 - sudo netstat -tlnp #check to see which applicaiton is listening to which port
