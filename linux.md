@@ -25,6 +25,7 @@
 - `sudo mkfs.ext4 /dev/sd[x][#]` make a file system on a disk partition
 - `du -sh [filelocation1] [filelocation2] ...| sort -h` view list of dirs and their sizes; sort by file size and summarize dirs
 - `uname -m`
+- `free -m` check memory usage
 
 ### TIME AND DATE
 - `date` view sys date and time
