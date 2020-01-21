@@ -170,5 +170,4 @@ conn.getPrinters()
 conn.getJobs()
 # print something
 conn.printFile("PRINTER_NAME", PATH_TO_FILE, "NAME OF JOB",{"media":"62x100mm", "option1":"value1",})
-
 ```
