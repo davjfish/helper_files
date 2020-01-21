@@ -156,3 +156,19 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
 - check the status of active jobs: `lpstat -R` or `lpstat -W all|not-completed|completed`
 - cancel a job: `cancel [name_of_job]`
   
+### use the python wrapper for CUPS
+- install the following: `sudo apt-get install libcups2-dev`
+- install: `pip install pycups`
+- Example:
+```
+# from https://pypi.org/project/pycups/
+import cups
+conn = cups.Connection()
+# look at list of printers
+conn.getPrinters()
+# look at list of jobs
+conn.getJobs()
+# print something
+conn.printFile("PRINTER_NAME", PATH_TO_FILE, "NAME OF JOB",{"media":"62x100mm", "option1":"value1",})
+
+```
