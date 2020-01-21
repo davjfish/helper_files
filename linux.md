@@ -132,3 +132,26 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
 ## Scheduling Processes
 -`sudo crontab -l` view current crontab
 -`sudo crontab -e` edit current crontab
+
+## Printing
+- make sure you have cups and cups-client installed on the machine: `sudo apt install cups cups-client`
+- view list of printers by device `lpstat -p -d`. The `-d` arg is to see what the current system default is set to, `-p` is for the list of printers
+- check out the man for lpstat: [https://www.cups.org/doc/man-lpstat.html](https://www.cups.org/doc/man-lpstat.html)
+
+- check out the man for lpoptions: [https://www.cups.org/doc/man-lpoptions.html](https://www.cups.org/doc/man-lpoptions.html)
+- and check out this page on cups options from the cups man: [https://www.cups.org/doc/options.html](https://www.cups.org/doc/options.html)
+- set a default printer `lpoptions -d [printer_name_from_above_list]`
+- look at the options of a specific printer `lpoptions -p [printer_name_from_above_list] -l`
+- set a default options for a specific printer `lpoptions -p [printer_name_from_above_list] -o [prop_name]=[value]` e.g.: 
+    - lpoptions -p [printer_name_from_above_list] -o media=62x100mm` 
+
+- check out the man for lp: [https://www.cups.org/doc/man-lp.html](https://www.cups.org/doc/man-lp.html)
+- here are some useful examples for printing:
+    - `lp my_test_file`
+    - `lp my_test_file -d PRINER_NAME`
+    - `lp my_test_file -o landscape`
+    - `lp my_test_file -o landscape -o media=62x100mm`
+
+- check the status of active jobs: `lpstat -R` or `lpstat -W all|not-completed|completed`
+- cancel a job: `cancel [name_of_job]`
+  
