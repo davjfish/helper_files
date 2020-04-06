@@ -129,16 +129,14 @@
 
 ## Privileges
 - CREATE USER '[user]'@'[host]' IDENTIFIED BY '[password]';
-
-
+- RENAME USER 'my_user'@'host' TO 'my_new_user'@'host';
 - GRANT ALL PRIVILEGES ON base.* TO '[user]'@'[host]'; (Best to use this one for Django users)
 - GRANT SELECT, INSERT, DELETE, UPDATE, CREATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 - REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 - REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
-- SET PASSWORD = PASSWORD('new_pass')
-- SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass')
-- SET PASSWORD = OLD_PASSWORD('new_pass')
+- SET PASSWORD FOR 'my_user'@'%' = PASSWORD('my_text_password');
 - DROP USER 'user'@'host'
+
 ### Display list of users:
 - SELECT user, authentication_string, plugin, host from mysql.user
 ### Flush privileges
