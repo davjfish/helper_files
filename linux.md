@@ -14,6 +14,7 @@
 - `sudo apt-get upgrade` upgrades all packages
 - show all installed packages `apt list --installed`
 - read mail for user logged in `sudo less /var/mail/$(whoami)`
+- find a program: `whereis git`
 
 ## SYSTEM / FILE SYSTEM INFO
 - `df -h` check disk space available on all mounted disks
