@@ -93,12 +93,12 @@ git diff-tree --no-commit-id --name-only -r <commit-ish>
 ## To force overwrite of local file with what's on origin/master
 - If you want to overwrite only one file:
 ```
-git fetch
-git checkout origin/master <filepath>
+git fetch origin
+git checkout origin/master -- <filepath>
 ```
 - If you want to overwrite all changed files:
 ```
-git fetch
+git fetch origin
 git reset --hard origin/master
 ```
 
