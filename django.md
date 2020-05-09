@@ -13,3 +13,27 @@ django-admin startproject <name> .
 
 #the . means start it in the current folder
 ```
+# Start a new app
+```
+python manage.py startapp <name>
+```
+
+# Add App to Project
+In settings.py under INSTALLED_APS = [ ] add the name of your app
+
+# Add App URLs to Project
+1) In urls.py of the project folder under urlpatterns = [] add your app
+```
+#ie
+path('<appname>/', include('<appname>.urls')),
+```
+2) Create a urls.py file in your app and add your urls
+```
+#ie
+from django.urls import path
+from projects import views
+
+urlpatterns = [
+    path('', views.project_list),
+]
+```
