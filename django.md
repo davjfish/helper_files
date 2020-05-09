@@ -6,3 +6,10 @@
 1. delete everything in migration folder except __init__.py
 1. make migrations `python manage.py makemigrations my_app`
 1. fake initial migration `python manage.py migrate --fake-initial` 
+
+# Start a new project
+```
+django-admin startproject <name> .
+
+#the . means start it in the current folder
+```
