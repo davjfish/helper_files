@@ -83,7 +83,8 @@ pip install -U pip
 #verify installed packages have compatible dependencies
 pip check
 
-#You can also put a list of packages (one per line) in a text file and install all of them at once using the -r or --requirement flag.
+#You can also put a list of packages (one per line) in a text file and install all of them at once using the 
+#-r or --requirement flag.
 pip install -r requirements.txt
 
 #Other commands 
