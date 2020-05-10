@@ -19,7 +19,7 @@ python manage.py startapp <name>
 ```
 
 # Add App to Project
-In settings.py under INSTALLED_APS = [ ] add the name of your app
+In settings.py under INSTALLED_APPS = [ ] add the name of your app
 
 # Add App URLs to Project
 1) In urls.py of the project folder under urlpatterns = [] add your app
@@ -41,7 +41,12 @@ urlpatterns = [
 ```
 Using <b> app_name </b> and <b> name= </b> later allows you in templates to refer to this url using <b> {% url 'projects:project_list' %}
 
-
+# Manage models from Admin
+1) From the Terminal type the following and follow prompts:
+```
+python manage.py createsuperuser
+```
+2) Go in to the app admin.py file and register the models in the admin interface
 
 # DJANGO Templating Language
 ```
