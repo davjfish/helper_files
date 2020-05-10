@@ -27,13 +27,24 @@ In settings.py under INSTALLED_APS = [ ] add the name of your app
 #ie
 path('<appname>/', include('<appname>.urls')),
 ```
-2) Create a urls.py file in your app and add your urls
+2) Create a urls.py file in your app and add your urls and app name
 ```
 #ie
 from django.urls import path
 from projects import views
 
+app_name = "projects"
+
 urlpatterns = [
-    path('', views.project_list),
+    path('', views.project_list, name="project_list"),
 ]
+```
+Using <b> app_name </b> and <b> name= </b> later allows you in templates to refer to this url using <b> {% url 'projects:project_list' %}
+
+
+
+# DJANGO Templating Language
+```
+{% code logic %}
+{{ variables }}
 ```
