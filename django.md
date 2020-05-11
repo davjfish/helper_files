@@ -56,7 +56,7 @@ urlpatterns = [
     path('', views.project_list, name="project_list"),
 ]
 ```
-Using <b> app_name </b> and <b> name= </b> later allows you in templates to refer to this url using <b> {% url 'projects:project_list' %}
+Using <b> app_name </b> and <b> name= </b> later allows you in templates to refer to this url using <b> {% url 'projects:project_list' %}</b>
 
 # Remove an App
 1) Clean the database
