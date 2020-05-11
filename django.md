@@ -11,7 +11,7 @@
 ```
 python manage.py makemigrations --empty <appname>
 ```
-This can be used to make an empty migration in sequence. For example you load data in this way using:
+This can be used to make an empty migration in sequence. For example you could load data in this way using or create a custom migration:
 ```
 def load_date(apps, schema_editor):
     XY = apps.get_model("appname", "modelname")
