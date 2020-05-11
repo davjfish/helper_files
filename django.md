@@ -58,6 +58,18 @@ urlpatterns = [
 ```
 Using <b> app_name </b> and <b> name= </b> later allows you in templates to refer to this url using <b> {% url 'projects:project_list' %}
 
+# Remove an App
+1) Clean the database
+```
+python manage.py migrate my_app_name zero
+```
+2) Remove the app from your project
+```
+Delete it from INSTALLED_APPS in your project's settings.py
+```
+3) Delete app files and references to app anywhere else in project
+
+
 # Manage models from Admin
 1) From the Terminal type the following and follow prompts:
 ```
