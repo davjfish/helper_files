@@ -7,6 +7,23 @@
 1. make migrations `python manage.py makemigrations my_app`
 1. fake initial migration `python manage.py migrate --fake-initial` 
 
+# Create an empty migration
+```
+python manage.py makemigrations --empty <appname>
+```
+This can be used to make an empty migration in sequence. For example you load data in this way using:
+```
+def load_date(apps, schema_editor):
+    XY = apps.get_model("appname", "modelname")
+    
+    XY(field1=thing, field2=123,).save()
+    
+operations = [
+    migrations.RunPython(load_data)
+    ]
+```
+However see cautions here: https://realpython.com/data-migrations/#comment-1843026722
+
 # Start a new project
 ```
 django-admin startproject <name> .
