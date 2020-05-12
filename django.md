@@ -81,6 +81,10 @@ Delete it from INSTALLED_APPS in your project's settings.py
 python manage.py createsuperuser
 ```
 2) Go in to the app admin.py file and register the models in the admin interface
+```
+from myproject.myapp.models import Author
+admin.site.register(Author)
+```
 
 # DJANGO Templating Language
 ```
