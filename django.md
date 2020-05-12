@@ -24,6 +24,11 @@ operations = [
 ```
 However see cautions here: https://realpython.com/data-migrations/#comment-1843026722
 
+# Name a migration
+```
+python manage.py makemigrations mmutools --name "fix_items_table_field_names_add_size_fk"
+```
+
 # Start a new project
 ```
 django-admin startproject <name> .
