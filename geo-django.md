@@ -25,6 +25,22 @@ Software you need:
 - name your database and save
 - right click on 'extensions' under new database and then 'create', type 'postgis' and select and save
 
+## Python
+- download latest version at https://www.python.org/downloads/
+- install and reboot
+
 ### QGIS
-(If you don't want to install QGIS you can independently install GDAL, GEOS and PROJ.4)
-- 
+(If you don't want to install QGIS, you can independently install GDAL, GEOS and PROJ.4)
+- download latest version at https://qgis.org/en/site/forusers/download.html
+- install 
+
+### Django
+- create your virtual environment as usual
+- use pip to install django
+- create your project 
+- go into settings.py in your project and add geo-django to installed apps
+```
+INSTALLED_APPS = [
+'django.contrib.gis',
+]
+```
