@@ -100,3 +100,59 @@ Further troubleshooting with this: https://stackoverflow.com/questions/49139044/
 # Create App
 - create your app now as usual
 - add to INSTALLED_APPS in settings.py
+
+# Leaflet for maps
+Learn more at https://leafletjs.com/examples/quick-start/
+- add CSS, JS and map height to .html template head -- MUST be in this order
+```
+<head>
+    <meta charset="UTF-8">
+    <title>Nearby Shops</title>
+    
+    <!--    Leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   
+     <!-- Leaflet JS - Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+   
+    <!--    Leaflet - set map height-->
+    <style>
+        #mapid { height: 180px; }
+    </style>
+    
+</head>
+```
+- in body add an empty div for the map and then add the javascript to display markers
+```
+<!-- map div-->
+    <div id="mapid"></div>
+
+    <!-- map js -->
+    <script>
+        var map = L.map('mapid').setView([39.290440, -76.612330], 17);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([39.290440, -76.612330]).addTo(map)
+            .bindPopup('I am in Baltimore.<br> Looking for shops!')
+            .openPopup();
+
+        {% for shop in shops %}
+        var circle = L.circle([{{ shop.location.y }}, {{ shop.location.x }}], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 5
+      }).addTo(map);
+        {% endfor %}
+
+    </script>
+```
+    
+
