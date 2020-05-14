@@ -99,4 +99,4 @@ Further troubleshooting with this: https://stackoverflow.com/questions/49139044/
 
 # Create App
 - create your app now as usual
-
+- add to INSTALLED_APPS in settings.py
