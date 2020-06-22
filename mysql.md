@@ -142,7 +142,7 @@
 ### Flush privileges
 - FLUSH PRIVILEGES;
 ### To grant admin level privileges
-- GRANT ALL PRIVILEGES ON *.* TO "[username]"@"[host]" WITH GRANT OPTION;
+- `GRANT ALL PRIVILEGES ON *.* TO "[username]"@"[host]" WITH GRANT OPTION;`
 
 ## Main data types
 - TINYINT   (1o: -127+128)
