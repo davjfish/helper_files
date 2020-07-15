@@ -10,6 +10,7 @@
 - ls –F : 
 - ls <folder> : list files in folder
 - ls –a : shows working directory folders too
+- cmd //c tree //F : shows tree of directory with subfolders and files
 
 ## Text Commands
 - tab : autocomplete 
