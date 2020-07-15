@@ -78,3 +78,12 @@ echo $filename
 head –n 2 $filename | tail –n 1
 done
 ```
+
+## Other tips and tricks
+
+Use Bash from Atom editor
+- install platformio-ide-terminal package
+
+Then in package options
+- Shell Override: C:\Program Files\Git\bin\bash.exe
+- Shell Arguments: -l -i
