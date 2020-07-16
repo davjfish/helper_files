@@ -134,8 +134,8 @@
 - GRANT SELECT, INSERT, DELETE, UPDATE, CREATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 - REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 - REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
-- SET PASSWORD FOR 'my_user'@'%' = PASSWORD('my_text_password');
-- DROP USER 'user'@'host'
+- ALTER USER 'userName'@'localhost' IDENTIFIED BY 'New-Password-Here';
+- DROP USER 'user'@'host';
 
 ### Display list of users:
 - SELECT user, authentication_string, plugin, host from mysql.user
