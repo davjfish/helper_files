@@ -114,6 +114,7 @@ USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
 - `who -H` see who is currently logged in
 - `cat /etc/passwd | less` view all users on sys
 - `sudo adduser <newusername>` add new user
+- `sudo usermod -aG sudo <username>` add user to the sudo group
 - script to change username and home dir of existing user
 ```
 newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername && sudo usermod -d /home/$newHomeDir -m $newUsername
