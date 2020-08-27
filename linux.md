@@ -20,6 +20,7 @@
 - `df -h` check disk space available on all mounted disks
 - `uname -a` provides some basic system information
 - `sudo lshw -html | -short` hardware information
+- `lsblk` a list of storage devices and their partitions
 - `sudo fdisk -l` take a look at all installed disks
 - `sudo fdisk /dev/sb[x]` will open fdisk to work in sd[x]
 - `sudo parted` a more powerful and advanced tool for managing partitions etc.
@@ -27,6 +28,17 @@
 - `du -sh [filelocation1] [filelocation2] ...| sort -h` view list of dirs and their sizes; sort by file size and summarize dirs
 - `uname -m`
 - `free -m` check memory usage
+
+### Steps to reformat a flash drive [https://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu](https://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu)
+- this is assuming your device is called `sdc`
+- make sure the drive is unmounted; it should not show up in `df -lh`
+- if you like, you can erase all the data on the drive `sudo dd if=/dev/zero of=/dev/sdc bs=4k status=progress && sync`. `dd` stands for `disk destroyer`. This operation will  spend some time writing millions and millions of zeros over every nook and cranny of the /dev/sda1 partition [https://opensource.com/article/18/7/how-use-dd-linux](https://opensource.com/article/18/7/how-use-dd-linux)
+- `sudo fdisk /dev/sdc` followed by: `N` for new then `W` for write. 
+- `lsblk` to confirm the partition is created
+- `sudo mkfs.vfat /dev/sdc1` to create a new filesystem on the partition
+- to eject the disk `sudo eject /dev/sdc`
+- or, to mount the partition `sudo mount /dev/sdc1 /mnt/my_sexy_folder`
+
 
 ### TIME AND DATE
 - `date` view sys date and time
