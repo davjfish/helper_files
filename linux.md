@@ -49,6 +49,7 @@
 - To set the timezone of your system clock do the following: `cp /usr/share/zoneinfo/Canada/Atlantic /etc/localtime`
 - Set date from the command line: `date +%Y%m%d -s "20120418"`
 - Set time from the command line: `date +%T -s "11:14:00"`
+- Sync the system with a network time protocol (NTP) server: `sudo ntpdate DFNSB2YwpDCP001.ENT.dfo-mpo.ca`. Common time servers include: `time.nrc.ca`
 
 ## FILE MANAGEMENT
 - `sudo chmod 777 <filename>` change the permissions of a file or folder or 'chmod u=rwx,g=rx,o=r <myfile>'
