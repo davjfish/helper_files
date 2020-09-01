@@ -15,6 +15,7 @@
 - show all installed packages `apt list --installed`
 - read mail for user logged in `sudo less /var/mail/$(whoami)`
 - find a program: `whereis git`
+- empty the contents of a large file: `> error.log` or `: > error.log` or `true > error.log` or `cat /dev/null > error.log` or `cp /dev/null error.log` or `echo "" > error.log`
 
 ## SYSTEM / FILE SYSTEM INFO
 - `df -h` check disk space available on all mounted disks
