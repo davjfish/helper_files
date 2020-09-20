@@ -187,3 +187,35 @@ conn.getJobs()
 # print something
 conn.printFile("PRINTER_NAME", PATH_TO_FILE, "NAME OF JOB",{"media":"62x100mm", "option1":"value1",})
 ```
+
+### Add a startup script 
+from [https://transang.me/create-startup-scripts-in-ubuntu/](https://transang.me/create-startup-scripts-in-ubuntu/)
+1. create a `.service` file: `sudo nano /etc/systemd/system/my-service.service`
+2. add the following lines inside the file: 
+  ```
+  [Unit]
+  Description=My custom startup script
+  # After=network.target
+  # After=systemd-user-sessions.service
+  # After=network-online.target
+
+  [Service]
+  # User=spark
+  # Type=simple
+  # PIDFile=/run/my-service.pid
+  ExecStart=/home/transang/startup.sh start
+  # ExecReload=/home/transang/startup.sh reload
+  # ExecStop=/home/transang/startup.sh stop
+  # TimeoutSec=30
+  # Restart=on-failure
+  # RestartSec=30
+  # StartLimitInterval=350
+  # StartLimitBurst=10
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+3. `systemctl start my-service.service` to start the service
+4. `systemctl enable my-service.service` to enable the service on startup
+5. make sure the permissions and modes of the script file are set correctly (i.e. can be executed) and that the script file's first line is `#!/bin/bash`
+
