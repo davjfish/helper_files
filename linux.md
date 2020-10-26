@@ -220,3 +220,10 @@ from [https://transang.me/create-startup-scripts-in-ubuntu/](https://transang.me
 4. `systemctl enable my-service.service` to enable the service on startup
 5. make sure the permissions and modes of the script file are set correctly (i.e. can be executed) and that the script file's first line is `#!/bin/bash`
 
+
+### Aliasing
+- edit the `.bashrc` file: `nano ~/.bashrc`
+- at the bottom, add the alias: `alias rm='rm -i'`
+- execute the bashrc file: `. ~/.bashrc`
+- [reference](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
+
