@@ -134,3 +134,8 @@ git clone /path/to/local/repo
 git remote add repo_b /path/to/repository
 git pull repo_b master
 ```
+
+### Delete local reference to deleted branches and display verbose
+```
+git fetch --prune -v
+```
