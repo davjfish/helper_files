@@ -29,6 +29,7 @@
 - `du -sh [filelocation1] [filelocation2] ...| sort -h` view list of dirs and their sizes; sort by file size and summarize dirs
 - `uname -m`
 - `free -m` check memory usage
+- `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
 
 ### Steps to reformat a flash drive [https://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu](https://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu)
 - this is assuming your device is called `sdc`
@@ -218,4 +219,11 @@ from [https://transang.me/create-startup-scripts-in-ubuntu/](https://transang.me
 3. `systemctl start my-service.service` to start the service
 4. `systemctl enable my-service.service` to enable the service on startup
 5. make sure the permissions and modes of the script file are set correctly (i.e. can be executed) and that the script file's first line is `#!/bin/bash`
+
+
+### Aliasing
+- edit the `.bashrc` file: `nano ~/.bashrc`
+- at the bottom, add the alias: `alias rm='rm -i'`
+- execute the bashrc file: `. ~/.bashrc`
+- [reference](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
 
