@@ -7,6 +7,8 @@
 1. make migrations `python manage.py makemigrations my_app`
 1. fake initial migration `python manage.py migrate --fake-initial` 
 
+https://simpleisbetterthancomplex.com/tutorial/2016/07/26/how-to-reset-migrations.html
+
 # Create an empty migration
 ```
 python manage.py makemigrations --empty <appname>
