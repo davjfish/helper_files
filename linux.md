@@ -85,9 +85,9 @@ this installed `sudo apt install cifs-utils`
 ```
 USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
 ```
-- sudo smbpasswd -a <username> # add a user (must already exist on server)
-- sudo nano /etc/samba/smb.conf # edit the config file (and specify name, user access, etc)
-- sudo service smbd restart # restart service
+- `sudo smbpasswd -a <username>` # add a user (must already exist on server)
+- `sudo nano /etc/samba/smb.conf` # edit the config file (and specify name, user access, etc)
+- `sudo service smbd restart` # restart service
 - `sudo pdbedit -L -v` list all samba users
 - example samba share - any samba user will be able to access this:
 ```
@@ -107,6 +107,7 @@ USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
    guest ok = no
    valid users = admin,wadee,surettet,boudreaus
 ```
+- finally, make sure the folder you are trying to share is opened! I have been granting 777 permissions but I am not sure if there is not a better, safer way to do this
 
 ### FTP
 - install `sudo apt install vsftpd`
@@ -196,23 +197,10 @@ from [https://transang.me/create-startup-scripts-in-ubuntu/](https://transang.me
   ```
   [Unit]
   Description=My custom startup script
-  # After=network.target
-  # After=systemd-user-sessions.service
-  # After=network-online.target
-
+  
   [Service]
-  # User=spark
-  # Type=simple
-  # PIDFile=/run/my-service.pid
   ExecStart=/home/transang/startup.sh start
-  # ExecReload=/home/transang/startup.sh reload
-  # ExecStop=/home/transang/startup.sh stop
-  # TimeoutSec=30
-  # Restart=on-failure
-  # RestartSec=30
-  # StartLimitInterval=350
-  # StartLimitBurst=10
-
+  
   [Install]
   WantedBy=multi-user.target
   ```
