@@ -1,4 +1,9 @@
-# Setting up a location-based app with geo-django
+[Geodjango with PostgreSQL](#method-1) 
+
+[Geodjango with sqlite3](#method-2)
+
+# Method 1
+# Setting up a location-based app with geo-django with PostgreSQL
 
 Software you need:
 - PostgreSQL
@@ -154,5 +159,35 @@ Learn more at https://leafletjs.com/examples/quick-start/
 
     </script>
 ```
-    
+
+# Method 2
+# Setting up a location-based app with geo-django with sqlite3 and Spatialite
+
+General steps:
+- check Python version and (32 vs 64)
+- download cyqlite (R-tree enabled)
+- download correct versions of Spatialite files (zips)
+- unpack zips somewhere (i.e. C:/Spatialite), sqlite first, then overwrite if prompted with Spatialite files
+
+- if not using venv: add folder to System Path
+- if using venv: go to venv folder, make a copy of Scripts folder, copy Spatialite folder files to Scripts folder
+
+- in python DLL folder: rename sqlite3.dll to sqlite3_old.dll and copy sqlite3.dll from Spatialite folder
+
+
+Reference materials:
+
+App Tutorial: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
+
+Setting up Spatialite: 
+
+Spatialite install: https://pythongisandstuff.wordpress.com/2015/11/11/python-and-spatialite-32-bit-on-64-bit-windows/ (note: mod_spatialite no longer exists as such, have to download the three zips and unpack into venv)
+
+Spatialite files: https://www.gaia-gis.it/gaia-sins/ (From red box at bottom)
+
+Inserting in venv: https://stackoverflow.com/questions/39787700/unable-to-locate-the-spatialite-library-django
+
+
+
+
 
