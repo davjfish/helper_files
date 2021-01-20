@@ -187,7 +187,11 @@ Spatialite files: https://www.gaia-gis.it/gaia-sins/ (From red box at bottom)
 
 Inserting in venv: https://stackoverflow.com/questions/39787700/unable-to-locate-the-spatialite-library-django
 
-
+Error Messages:
+"ERROR 4: Unable to open EPSG support file gcs.csv. Try setting the GDAL_DATA environment variable to point to the directory containing EPSG csv files"
+Means it can't find the GDAL_DATA path. In my case I had deleted the osgeo folder that it originally linked to in my venv variables, so I had to manually go in and change it to the new directory.
+Resolved by: Edit configurations > Environment Variables > add GDAL_DATA path 
+See: https://stackoverflow.com/questions/57288856/unable-to-open-epsg-support-file-gcs-csv-setting-the-gdal-data-environment-var
 
 
 
