@@ -1,4 +1,4 @@
-# DJANGO NOTES
+# DOCKER NOTES
 
 
 ### images
