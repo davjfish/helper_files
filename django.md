@@ -93,3 +93,8 @@ admin.site.register(Author)
 {% code logic %}
 {{ variables }}
 ```
+
+
+# DUMPDATA
+```python manage.py dumpdata --exclude auth.permission --exclude contenttypes > my_data.json```
+
