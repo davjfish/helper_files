@@ -112,6 +112,9 @@ USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
 ### FTP
 - install `sudo apt install vsftpd`
 - config file `/etc/vsftpd.conf `
+- to upload a file to an ftp url `curl -T localfile.txt ftp://192.168.0.19/path/to/remotefile.txt --user my_user:my_pw` (might have to apt install curl first)
+
+
 
 
 
@@ -151,6 +154,10 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
 ## Scheduling Processes
 -`sudo crontab -l` view current crontab
 -`sudo crontab -e` edit current crontab
+- in crontab file: 
+    - do something every day (at midnight) --> ```0 0 *  * * bash /usr/local/bin/my_daily_script_to_run.sh```
+    - do something every hour --> ```0 * *  * * bash /usr/local/bin/my_hourly_script_to_run.sh```
+
 
 ## Printing
 - make sure you have cups and cups-client installed on the machine: `sudo apt install cups cups-client`
