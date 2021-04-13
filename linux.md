@@ -222,3 +222,12 @@ from [https://transang.me/create-startup-scripts-in-ubuntu/](https://transang.me
 - execute the bashrc file: `. ~/.bashrc`
 - [reference](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
 
+## Environment Variables (from [https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/))
+- list variables `printenv`
+- get value for specific variable `printenv Var1 var2 var3... `
+- create an environmental var for current session: `export MY_NEW_VAR="My New Var"`
+- add variable to system-wide variable: in `/etc/environment` add your variables: 
+    ```
+    FOO=bar
+    VAR_TEST="Test Var"
+    ```
