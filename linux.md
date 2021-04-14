@@ -231,3 +231,22 @@ from [https://transang.me/create-startup-scripts-in-ubuntu/](https://transang.me
     FOO=bar
     VAR_TEST="Test Var"
     ```
+  
+### firewall
+- good resource: [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04)
+- reset to default config:
+```
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+- allow incoming ssh: `sudo ufw allow ssh` or `sudo ufw allow 22`
+- allow incoming range port: `sudo ufw allow 6000:6007/tcp`
+- allow incoming from a specific ip address: `sudo ufw allow from 203.0.113.4`
+- allow incoming from a specific ip address to a specific port: `sudo ufw allow from 203.0.113.0/24 to any port 22`
+- allow incoming from a specific ip address to a specific port on a specific NIC: `sudo ufw allow in on eth0 to any port 80`
+- you can replace `allow` with `deny` for any of the above
+- get a list of rules with numbers: `sudo ufw status numbered`
+- delete a rule by its number: `sudo ufw delete 2`
+- checking the status of rules: `sudo ufw status verbose`
+- enable rules: `sudo ufw enable` (note: for each new rule added, you will have to enable)
+
