@@ -75,7 +75,7 @@ this installed `sudo apt install cifs-utils`
 - sudo netstat -tlnp #check to see which applicaiton is listening to which port
 - `sudo arp-scan --interface=ens1 --localnet` scan of local network; be sure to first install arp-scan. use ifconfig to find out interface name
 - you can also try this usage: `sudo arp-scan [default gateway ip]/CIDR`
-- `sudo nmap -sP -PI -PT 192.168.x.x/24` is an alternative to the above. replace x.x. with default gateway / router ip  
+- `sudo nmap -sP -PI -PT 192.168.x.x/24` is an alternative to the above. replace x.x. with default gateway - router ip / netmask cidr  
 - `ip route` to see the DHCP server info. In general the `ip` can be a useful tool e.g., `id addr`
 
 
