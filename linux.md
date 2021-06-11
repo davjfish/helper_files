@@ -74,6 +74,10 @@ this installed `sudo apt install cifs-utils`
 ## Networking
 - sudo netstat -tlnp #check to see which applicaiton is listening to which port
 - `sudo arp-scan --interface=ens1 --localnet` scan of local network; be sure to first install arp-scan. use ifconfig to find out interface name
+- you can also try this usage: `sudo arp-scan [default gateway ip]/CIDR`
+- `sudo nmap -sP -PI -PT 192.168.x.x/24` is an alternative to the above. replace x.x. with default gateway / router ip  
+- `ip route` to see the DHCP server info. In general the `ip` can be a useful tool e.g., `id addr`
+
 
 ## Services
 
@@ -249,4 +253,8 @@ sudo ufw default allow outgoing
 - delete a rule by its number: `sudo ufw delete 2`
 - checking the status of rules: `sudo ufw status verbose`
 - enable rules: `sudo ufw enable` (note: for each new rule added, you will have to enable)
+- allow samba: `sudo ufw allow samba`
 
+
+# random jewels
+- how to adjust behavior when closing the lid of a laptop: [https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
