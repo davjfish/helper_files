@@ -78,6 +78,22 @@ this installed `sudo apt install cifs-utils`
 - `sudo nmap -sP -PI -PT 192.168.x.x/24` is an alternative to the above. replace x.x. with default gateway - router ip / netmask cidr  
 - `ip route` to see the DHCP server info. In general the `ip` can be a useful tool e.g., `id addr`
 
+### Set a static ip
+- source is from [here](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-20-04/#:~:text=Configuring%20Static%20IP%20address%20on%20Ubuntu%20Desktop,-Setting%20up%20a&text=Depending%20on%20the%20interface%20you,IP%20address%2C%20Netmask%20and%20Gateway.)
+- make sure this file is set to disabled `sudo nano /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg`
+  ```
+  network: {config: disabled}
+  ```
+- edit this file: `sudo nano /etc/netplan/01-netcfg.yaml` and under the NIC that you want to set a static ip:
+  ```
+  dhcp4: no
+      addresses:
+        - 192.168.121.221/24  # your requested IP and subnet mask
+      gateway4: 192.168.121.1  # this is your default gateway
+      nameservers:
+          addresses: [8.8.8.8, 1.1.1.1]
+  ```
+- apply the changes `sudo netplan apply`
 
 ## Services
 
