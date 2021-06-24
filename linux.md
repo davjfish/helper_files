@@ -100,6 +100,7 @@ this installed `sudo apt install cifs-utils`
 - show list of all services `service --status-all`
 
 ### Samba
+- connect to an smb share (one-off) `smbclient \\host\share -U myuser'  
 - service samba status # check status
 - script to add user to linux and samba together
 ```
