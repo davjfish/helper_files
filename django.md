@@ -98,3 +98,50 @@ admin.site.register(Author)
 # DUMPDATA
 ```python manage.py dumpdata --exclude auth.permission --exclude contenttypes > my_data.json```
 
+
+# Setting up a vueJS application within django app
+- install nodeJS
+- npm i -g @vue/cli  
+- create a vue application in the django root dir `vue create myapp`
+- go into the frontend folder and install webpack-bundle-tracker `npm install --save-dev webpack-bundle-tracker@0.4.3`
+- create a file called `vue.config.js` in the `frontend` root dir and populate with the following:
+  ```
+  const BundleTracker = require("webpack-bundle-tracker");
+
+  module.exports = {
+  // on Windows you might want to set publicPath: "http://127.0.0.1:8080/", whereas linux would be "http://0.0.0.0:8080/"
+  publicPath: "http://127.0.0.1:8080/",
+  outputDir: "./dist/",
+
+  chainWebpack: config => {
+    config
+      .plugin("BundleTracker")
+      .use(BundleTracker, [{ filename: "./webpack-stats.json" }]);
+
+    config.output.filename("bundle.js");
+
+    config.optimization.splitChunks(false);
+
+    config.resolve.alias.set("__STATIC__", "static");
+
+    config.devServer
+      // the first 3 lines of the following code have been added to the configuration
+      .public("http://127.0.0.1:8080")
+      .host("127.0.0.1")
+      .port(8080)
+      .hotOnly(true)
+      .watchOptions({ poll: 1000 })
+      .https(false)
+      .disableHostCheck(true)
+      .headers({ "Access-Control-Allow-Origin": ["*"] });
+  },
+  // uncomment before executing 'npm run build'
+  // css: {
+  //     extract: {
+  //       filename: 'bundle.css',
+  //       chunkFilename: 'bundle.css',
+  //     },
+  // }
+};
+
+  ```

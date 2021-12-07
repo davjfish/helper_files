@@ -177,7 +177,7 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
 - in crontab file: 
     - do something every day (at midnight) --> ```0 0 *  * * bash /usr/local/bin/my_daily_script_to_run.sh```
     - do something every hour --> ```0 * *  * * bash /usr/local/bin/my_hourly_script_to_run.sh```
-
+- see below for a good autoupdate script and related crontab entries
 
 ## Printing
 - make sure you have cups and cups-client installed on the machine: `sudo apt install cups cups-client`
@@ -274,3 +274,25 @@ sudo ufw default allow outgoing
 
 # random jewels
 - how to adjust behavior when closing the lid of a laptop: [https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
+
+
+# start-up script and crontab entries for autoupdate / autoupgrade
+- open the file: `sudo nano /usr/local/bin/autoupdate.sh`:
+```
+#!/bin/bash
+
+apt-get update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+apt-get clean
+apt-get -y autoremove
+```
+- make sure it is executable: `sudo chmod 744 /usr/local/bin/autoupdate.sh`
+- go into your crontab: `sudo crontab -e`
+```
+# run the autoupdate script at 12:00am
+0 0   *   *   *    /usr/local/bin/autoupdate.sh
+
+# reboot your system every day at 4:05am
+0 4   *   *   *    /sbin/shutdown -r +5
+```
