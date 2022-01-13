@@ -136,7 +136,9 @@
 - REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
 - ALTER USER 'userName'@'localhost' IDENTIFIED BY 'New-Password-Here';
 - DROP USER 'user'@'host';
-
+- ALTER USER 'student'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass123'  # needed to switch the password hashing algorthm
+   
+   
 ### Display list of users:
 - SELECT user, authentication_string, plugin, host from mysql.user
 ### Flush privileges
