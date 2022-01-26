@@ -277,7 +277,7 @@ sudo ufw default allow outgoing
 - how to adjust behavior when closing the lid of a laptop: [https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
 
 
-# start-up script and crontab entries for autoupdate / autoupgrade
+# crontab entries for autoupdate / autoupgrade
 - open the file: `sudo nano /usr/local/bin/autoupdate.sh`:
 ```
 #!/bin/bash
