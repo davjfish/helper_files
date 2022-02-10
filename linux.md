@@ -35,7 +35,9 @@
 - `free -m` check memory usage
 - `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
 
-# File Compression (inspired by: [https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/))
+### File Compression 
+
+(inspired by: [https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/))
 
 - Compress an Entire Directory or a Single File: `tar -czvf name-of-archive.tar.gz /path/to/directory-or-file`
 - Compress Multiple Directories or Files at Once: `tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/Documents/notes.txt`
