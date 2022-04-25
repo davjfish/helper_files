@@ -96,6 +96,9 @@ git diff-tree --no-commit-id --name-only -r <commit-ish>
 git fetch origin
 git checkout origin/master -- <filepath>
 ```
+- or more generally:
+`git checkout [BRANCH] -- <filepath>`
+
 - If you want to overwrite all changed files:
 ```
 git fetch origin
