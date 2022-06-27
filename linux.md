@@ -88,7 +88,7 @@
     - `sudo cp /etc/fstab /etc/fstab.old`
     - `sudo nano /etc/fstab`
     - insert this line into fstab: `UUID=<uuid> <pathtomount> <filesystem> defaults 0 0`
-        - e.g., `UUID=fd812abd-359d-433e-a8ea-1367e312938f /mnt/backup ext4 defaults 0 0`
+        - e.g., `UUID=fd812abd-359d-433e-a8ea-1367e312938f /mnt/backup ext4 rw,user,exec,umask=000 0 0`  --> This will mount with 777 permissions
 - mount a Windows share: `sudo mount.cifs //Windowshost_or_IP/Share /home/geek/Desktop/Windows-Share -o user=geek`. Just make sure you have this
   installed `sudo apt install cifs-utils`
 
