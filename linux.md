@@ -60,14 +60,17 @@
 ### TIME AND DATE
 
 - `date` view sys date and time
-- `timedatectl list-timezones` list available timezones and then set the timezone
-- `sudo timedatectl set-timezone name_from_above_list` e.g. America/Moncton
-- `sudo timedatectl set-ntp on` turn on timesyncd
-- `sudo date mmddyyhhMM.ss` set sys date and time manually
-- To set the timezone of your system clock do the following: `cp /usr/share/zoneinfo/Canada/Atlantic /etc/localtime`
-- Set date from the command line: `date +%Y%m%d -s "20120418"`
-- Set time from the command line: `date +%T -s "11:14:00"`
-- Sync the system with a network time protocol (NTP) server: `sudo ntpdate DFNSB2YwpDCP001.ENT.dfo-mpo.ca`. Common time servers include: `time.nrc.ca`
+- Using `timedatectl` (preferred):
+  - `timedatectl list-timezones` list available timezones and then set the timezone
+  - `sudo timedatectl set-timezone name_from_above_list` e.g. America/Moncton
+  - `sudo timedatectl set-ntp on` turn on timesyncd
+  - `sudo timedatectl set-time '2015-11-23 08:10:40'` set date / time using timedatectl.. NOTE: you first have to turn off synchro
+- Using `date`:
+  - `sudo date mmddyyhhMM.ss` set sys date and time manually
+  - To set the timezone of your system clock do the following: `cp /usr/share/zoneinfo/Canada/Atlantic /etc/localtime`
+  - Set date from the command line: `date +%Y%m%d -s "20120418"`
+  - Set time from the command line: `date +%T -s "11:14:00"`
+- Sync the system with a network time protocol (NTP) server: `sudo ntpdate DFNSB2YwpDCP001.ENT.dfo-mpo.ca`. Common timeservers include: `time.nrc.ca`
 
 ## FILE MANAGEMENT
 
