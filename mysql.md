@@ -128,7 +128,7 @@
 - CREATE VIEW view AS SELECT ... FROM table WHERE ...
 
 ## Privileges
-- CREATE USER '[user]'@'[host]' IDENTIFIED BY '[password]';
+- CREATE USER '[user]'@'[host]' IDENTIFIED WITH mysql_native_password BY '[password]';
 - RENAME USER 'my_user'@'host' TO 'my_new_user'@'host';
 - GRANT ALL PRIVILEGES ON base.* TO '[user]'@'[host]'; (Best to use this one for Django users)
 - GRANT SELECT, INSERT, DELETE, UPDATE, CREATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
