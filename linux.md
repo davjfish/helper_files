@@ -19,6 +19,7 @@
 - find a program: `whereis git`
 - empty the contents of a large file: `> error.log` or `: > error.log` or `true > error.log` or `cat /dev/null > error.log` or `cp /dev/null error.log`
   or `echo "" > error.log`
+- Change the machine's hostname `hostnamectl set-hostname my-new-hostname`
 
 ## SYSTEM / FILE SYSTEM INFO
 
@@ -71,6 +72,7 @@
   - Set date from the command line: `date +%Y%m%d -s "20120418"`
   - Set time from the command line: `date +%T -s "11:14:00"`
 - Sync the system with a network time protocol (NTP) server: `sudo ntpdate DFNSB2YwpDCP001.ENT.dfo-mpo.ca`. Common timeservers include: `time.nrc.ca`
+ 
 
 ## FILE MANAGEMENT
 
