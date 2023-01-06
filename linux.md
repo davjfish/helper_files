@@ -321,7 +321,8 @@ sudo ufw default allow outgoing
 - checking the status of rules: `sudo ufw status verbose`
 - enable rules: `sudo ufw enable` (note: for each new rule added, you will have to enable)
 - allow samba: `sudo ufw allow samba`
-- reset all rules: `sudo ufw --force disable` then `sudo ufw --force reset` then `sudo ufw default deny incoming` then `sudo ufw default allow outgoing`
+- reset all rules: `sudo ufw --force dis able` then `sudo ufw --force reset` then `sudo ufw default deny incoming` then `sudo ufw default allow outgoing`
+- show pending rules: `sudo ufw show added`
 
 # random jewels
 
