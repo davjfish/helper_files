@@ -312,6 +312,7 @@ sudo ufw default allow outgoing
 - allow incoming ssh: `sudo ufw allow ssh` or `sudo ufw allow 22`
 - allow incoming range port: `sudo ufw allow 6000:6007/tcp`
 - allow incoming from a specific ip address: `sudo ufw allow from 203.0.113.4`
+- allow incoming traffic from a local network: `sudo ufw allow from 192.168.0.0/24`  where 192.168.0.0 is the pattern of the local network.
 - allow incoming from a specific ip address to a specific port: `sudo ufw allow from 203.0.113.0/24 to any port 22`
 - allow incoming from a specific ip address to a specific port on a specific NIC: `sudo ufw allow in on eth0 to any port 80`
 - you can replace `allow` with `deny` for any of the above
@@ -320,6 +321,7 @@ sudo ufw default allow outgoing
 - checking the status of rules: `sudo ufw status verbose`
 - enable rules: `sudo ufw enable` (note: for each new rule added, you will have to enable)
 - allow samba: `sudo ufw allow samba`
+- reset all rules: `sudo ufw --force disable` then `sudo ufw --force reset` then `sudo ufw default deny incoming` then `sudo ufw default allow outgoing`
 
 # random jewels
 
