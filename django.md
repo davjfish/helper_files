@@ -144,4 +144,18 @@ admin.site.register(Author)
   // }
 };
 
-  ```
+```
+
+
+if loadata is giving you trouble
+```
+if 'loaddata' in sys.argv:
+
+    # is database used sqlite3?    if 'sqlite3' in DATABASES['default']['ENGINE']:
+    # disable sqlite foreign key checks        print("Loading data from fixtures - disabling foreign key checks")
+        from django.db.backends.signals import connection_created
+        def disable_foreign_keys(sender, connection, **kwargs):
+            cursor = connection.cursor()
+            cursor.execute('PRAGMA foreign_keys=OFF;')
+        connection_created.connect(disable_foreign_keys)
+```

@@ -99,3 +99,68 @@ pip install -r requirements.txt
 https://pip.pypa.io/en/stable/reference/
 ```
 
+## Pandas
+
+- repeat something: `np.repeat(x, n)`
+
+### dataframes
+- get the first column of a DF: `df.iloc[:,0]`
+
+- iterate a DF over rows: 
+```
+for index, row in df.iterows():
+    print(row)
+```
+
+
+
+### Series
+
+
+
+## Matplotlib
+
+- horizontal line: `plt.axhline(0, color='white')`
+- vertical line: `plt.axvline(0, color='white')`
+
+
+
+# SciPy
+
+- Find a P-Value from a t-Score: 
+    ```
+    # find p-value
+    import scipy.stats
+    # left-tailed
+    scipy.stats.t.sf(abs(1.87), df=24)
+    # right-tailed
+    scipy.stats.t.sf(abs(-.77), df=15)
+    # two-tailed
+    scipy.stats.t.sf(abs(1.87), df=24) * 2
+    ```
+
+- Find t* critical value from significance level (q) and df: 
+    ```
+    # find T critical value
+    q = 0.01
+    df = 179
+    import scipy.stats
+    # Right-tailed
+    scipy.stats.t.ppf(q=1-q,df=df)
+    # left-tailed
+    scipy.stats.t.ppf(q=q,df=df)
+    # two-tailed
+    scipy.stats.t.ppf(q=1-q/2,df=df)
+    ```
+  
+- Find a P-Value from a chisq-Score: 
+    ```
+    # find p-value
+    import scipy.stats
+    # left-tailed
+    scipy.stats.t.sf(abs(1.87), df=24)
+    # right-tailed
+    scipy.stats.t.sf(abs(-.77), df=15)
+    # two-tailed
+    scipy.stats.t.sf(abs(1.87), df=24) * 2
+    ```

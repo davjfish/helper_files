@@ -239,6 +239,13 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
 
 - check the status of active jobs: `lpstat -R` or `lpstat -W all|not-completed|completed`
 - cancel a job: `cancel [name_of_job]`
+- to check if cups browsing is on:
+  ```
+  sudo service cups-browsed status
+  sudo service cups-browsed start
+  # etc...
+  ```
+
 
 ### use the python wrapper for CUPS
 
