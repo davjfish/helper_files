@@ -330,6 +330,7 @@ sudo ufw default allow outgoing
 - allow samba: `sudo ufw allow samba`
 - reset all rules: `sudo ufw --force dis able` then `sudo ufw --force reset` then `sudo ufw default deny incoming` then `sudo ufw default allow outgoing`
 - show pending rules: `sudo ufw show added`
+- allow all and any incoming traffic on a certain port: `sudo ufw allow from any to any port 19132 proto tcp`
 
 # random jewels
 
