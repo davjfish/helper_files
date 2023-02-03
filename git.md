@@ -142,3 +142,6 @@ git pull repo_b master
 ```
 git fetch --prune -v
 ```
+
+### See the commit version / hash 
+`git rev-parse --short HEAD`
