@@ -181,6 +181,9 @@ CREATE TABLE <table_name> (
 DROP TABLE IF EXISTS <table_name> CASCADE;
 ```
 
+https://www.postgresql.org/docs/current/ddl-constraints.html
+
+
 
 
 ### Permissions
