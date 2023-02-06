@@ -176,14 +176,21 @@ CREATE TABLE <table_name> (
   <column_name> SERIAL PRIMARY KEY
 );
 ```
+
+https://www.postgresql.org/docs/current/ddl-constraints.html
+Create table, with a required, unique column
+```sql  {.wrap}
+CREATE TABLE <table_name> (
+  ...
+  name VARCHAR(32) NOT NULL UNIQUE;
+);
+```
+
+
 [Delete table](http://www.postgresql.org/docs/current/static/sql-droptable.html)
 ```sql  {.wrap}
 DROP TABLE IF EXISTS <table_name> CASCADE;
 ```
-
-https://www.postgresql.org/docs/current/ddl-constraints.html
-
-
 
 
 ### Permissions
