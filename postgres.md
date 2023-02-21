@@ -138,8 +138,6 @@ DROP DATABASE IF EXISTS <database_name>;
 ALTER DATABASE <old_name> RENAME TO <new_name>;
 ```
 
-
-
 ### Tables
 
 List tables, in current db
@@ -191,6 +189,29 @@ CREATE TABLE <table_name> (
 ```sql  {.wrap}
 DROP TABLE IF EXISTS <table_name> CASCADE;
 ```
+
+
+Create a trigger to update an `updated_at` column
+```sql  {.wrap}
+-- create the function in plpgsql
+CREATE OR REPLACE FUNCTION update_<updated_at_column_nane>_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.<updated_at_column_nane> = now();
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+-- create the trigger
+CREATE TRIGGER update_<updated_at_column_nane>
+    BEFORE UPDATE ON keyvalue FOR EACH ROW EXECUTE PROCEDURE  update_<updated_at_column_nane>_column();
+```
+
+Rename table
+```sql {.wrap}
+ALTER TABLE <old_name> RENAME TO <new_name>;
+```
+
 
 
 ### Permissions
@@ -299,6 +320,13 @@ Delete specific data
 DELETE FROM <table_name>
 WHERE <column_name> = <value>;
 ```
+
+Select distinct data from a table
+```sql  {.wrap}
+SELECT DISTINCT <column_name1>, <column_name2> 
+FROM <table_name>;
+```
+
 
 
 
@@ -575,4 +603,5 @@ Also see
 - Reset the sequence of an autonumber; [https://stackoverflow.com/questions/5342440/reset-auto-increment-counter-in-postgres](https://stackoverflow.com/questions/5342440/reset-auto-increment-counter-in-postgres)
     - If you created the table product with an id column, then the sequence is not simply called product, but rather product_id_seq (that is, ${table}_${column}_seq).
     - `ALTER SEQUENCE my_schema.product_id_seq RESTART WITH 1453`
+
 
