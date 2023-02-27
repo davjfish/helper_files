@@ -97,7 +97,9 @@ git fetch origin
 git checkout origin/master -- <filepath>
 ```
 - or more generally:
-`git checkout [BRANCH] -- <filepath>`
+`git checkout [BRANCH] -- <filepath>`  So if I am on a local branch called `dev1` and I want to pull in a file from `dev2` I 
+   would simply execute: `git checkout dev2 -- ./folder/to/myfile`
+
 
 - If you want to overwrite all changed files:
 ```
