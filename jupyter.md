@@ -40,3 +40,15 @@ Convert and add converted file to Jupyter, from command prompt:
 ```
 jupyter nbconvert <file> -- to HTML (or PDF, etc..)
 ```
+
+## Server notebook on LAN
+
+- Create a notebook config file `jupyter notebook --generate-config`
+- add the following lines at the end of the config file:
+ ```
+c.NotebookApp.ip = '0.0.0.0' # listen on all IPs
+c.NotebookApp.token = ''     # disable authentication
+c.NotebookApp.allow_origin = '*' # allow access from anywhere
+c.NotebookApp.disable_check_xsrf = True # allow cross-site requests
+```
+- run the notebook: `jupyter notebook`
