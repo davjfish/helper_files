@@ -14,6 +14,10 @@
 - stop a containter: `lxc stop mycontainer`
 - delete a containter (must be stopped): `lxc delete mycontainer`
 
+### Container Operations
+- run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
+- access bash shell in a container: `lxc exec mycontainer -- bash`
+
 ### Storage
 - list the storage pools: `lxc storage list`
 - more info about a storage pool: `lxc storage into mypool`
@@ -21,6 +25,7 @@
 
 ### networking
 - see of list of networks `lxc network list`
+- add a container's ip to as an entry in the `/etc/hosts` file in order to avoid using ip: `240.217.0.70 mycontainer`. Then you can do things like: `ssh root@mycontainer`
 
 ### Profile Management:
 - show a list of profiles: `lxc profile list`
