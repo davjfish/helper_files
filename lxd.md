@@ -18,6 +18,12 @@
 - run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
 - access bash shell in a container: `lxc exec mycontainer -- bash`
 
+### ssh
+- create a user on the container: `lxc exec mycontainer -- adduser me`
+- enable password authentication: `lxc exec mycontainer -- nano /etc/ssh/sshd_config` --> `PasswordAuthentication yes`. Save and exit.
+
+
+
 ### Storage
 - list the storage pools: `lxc storage list`
 - more info about a storage pool: `lxc storage into mypool`
