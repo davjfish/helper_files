@@ -31,7 +31,10 @@
 - see of list of networks `lxc network list`
 - add a container's ip to as an entry in the `/etc/hosts` file in order to avoid using ip: `240.217.0.70 mycontainer`. Then you can do things like: `ssh root@mycontainer`
 
+
+
 ### Profile Management:
 - show a list of profiles: `lxc profile list`
 - edit an LXD profile: `lxs profile edit myprofile`
+- How to reassign profile: `lxc profile assign mycontainer newprofile`
 
