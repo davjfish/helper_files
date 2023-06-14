@@ -23,10 +23,11 @@
 - access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
 
 ### Snapshots
-- create a snapshot of a container: `lxc snapshot mycontainer snapshot.mycontainer.0`
+- create a snapshot of a container: `lxc snapshot mycontainer snapshot.mycontainer.0` use the `--resuse` flag to overwrite the file
 - restore a snapshot: `lxc restore mycontainer snapshot.mycontainer.0`
 - re-instantiate a snapshot as a new container: `lxc copy mycontainer/mysnapshot.0 mynewcontainer`
 - restore a snapshot: `lxc delete mycontainer/snapshot.mycontainer.0`
+- schedule the collection of snapshot: `lxc config set <instance_name> snapshots.schedule @daily` or `lxc config set <instance_name> snapshots.schedule "0 6 * * *"` to collect the snapshot at 6 am. 
 
 ### Images
 - NOTE: when you create a new container from a remote image, you download a copy locally
