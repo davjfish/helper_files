@@ -19,7 +19,8 @@
 - delete a containter (must be stopped): `lxc delete mycontainer`
 - rename a containter (must be stopped): `lxc move mycontainer mynewcontainer`
 - create a new containter from an old one (must be stopped): `lxc copy mycontainer mynewcontainer`
-
+- run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
+- access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
 
 ### Snapshots
 - create a snapshot of a container: `lxc snapshot mycontainer snapshot.mycontainer.0`
@@ -27,9 +28,16 @@
 - re-instantiate a snapshot as a new container: `lxc copy mycontainer/mysnapshot.0 mynewcontainer`
 - restore a snapshot: `lxc delete mycontainer/snapshot.mycontainer.0`
 
+### Images
+- NOTE: when you create a new container from a remote image, you download a copy locally
+- list all images you have in the system: `lxc image ls`
+- assign an alias to an image `lxc image alias create myalias 884a62161ef5` where the last arg is the image hash
+- rename an alias of an image `lxc image alias create myalias myaliasNEW`
+- remove an alias of an image `lxc image alias delete myalias`
+- create a new image from a container `lxc publish mycontainer/mysnapshot --alias mycontainerimage`
+- export an image `lxc image export mycontainerimage ~/myfolder`
 
-- run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
-- access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
+
 
 ### ssh
 - create a user on the container: `lxc exec mycontainer -- adduser me`
