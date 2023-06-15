@@ -3,15 +3,13 @@
 ### General
 - get the high level info about lxc/lxd installation `lxc info`
 - list containers `lxc ls`
-- list clusters `lxc cluster ls`
 - create a new container: `lxc launch ubuntu:22.04 mycontainer`
   - specify a profile: `... -p myprofile` (see below for more about profile management)
   - specify a config variable: `... -c limits.cpu=4 -c limits.memory=4GiB`
   - use VM instead of container: `... --vm`
 - show the container info: `lxc info mycontainer`
 - show the config for a container: `lxc config show mycontainer`
-- push file from host to container: `lxc file push ./myfile mycontainer /full/path/`
-- mount a folder from host in container: `lxc config device add mycontainer data disk source=/path/from/host path=/mnt/mounted_host_folder`
+
 
 ### container operations
 - start a containter: `lxc start mycontainer`
@@ -21,6 +19,12 @@
 - create a new containter from an old one (must be stopped): `lxc copy mycontainer mynewcontainer`
 - run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
 - access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
+- push file from host to container: `lxc file push ./myfile mycontainer /full/path/`
+
+
+### Devices
+- mount a folder from host in container: `lxc config device add mycontainer data disk source=/path/from/host path=/mnt/mounted_host_folder`
+- mount a usb device in a container: `lxc config device add mycontainer ttyACM0 unix-char mode=0666 gid=20 path=/dev/ttyACM0`
 
 ### Snapshots
 - create a snapshot of a container: `lxc snapshot mycontainer snapshot.mycontainer.0` use the `--resuse` flag to overwrite the file
@@ -33,10 +37,26 @@
 - NOTE: when you create a new container from a remote image, you download a copy locally
 - list all images you have in the system: `lxc image ls`
 - assign an alias to an image `lxc image alias create myalias 884a62161ef5` where the last arg is the image hash
-- rename an alias of an image `lxc image alias create myalias myaliasNEW`
+- rename an alias of an image `lxc image alias rename myalias myaliasNEW`
 - remove an alias of an image `lxc image alias delete myalias`
 - create a new image from a container `lxc publish mycontainer/mysnapshot --alias mycontainerimage`
-- export an image `lxc image export mycontainerimage ~/myfolder`
+  - NOTE: best to publish from a snapshot otherwise you need to stop the container
+- export an image to file `lxc image export mycontainerimage ~/myfolder`
+- import an image from file `lxc image import 725a02bf5e68.tar.gz` then `lxc image alias create mynewimagealias 725a02bf5e68`
+
+
+### clusters
+- **for clustering to work, all versions of lxd must be the same version!!**
+- list all nodes in cluster `lxc cluster ls`
+- add a new node to the cluster: `lxc cluster add <FQDN of new host>`. This should be run on from within the cluster. Then run `sudo lxd init` on the new node and copy the token.
+- move an instance from one node to another: 
+  ```
+  lxc stop c1
+  lxc move c1 --target node1
+  lxc start c1
+  ``` 
+- remove a cluster from a node: `lxc cluster remove <mycluster>`. If server is dead, you might need to use the `--force` flag.
+- **NOTE ABOUT SUBNETS** If the different nodes are on different networks, you will have to configure the `fan.underlay_subnet` in the `lxc network edit ldxfan0` to something appropriate for all networks. For example, if the inital network is `142.130.6.0/24` and the other network is `142.130.4.0/24`, you will have to set the fan.underlay subnet to `142.130.0.0/16`
 
 
 
