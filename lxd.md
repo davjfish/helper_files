@@ -58,8 +58,6 @@
 - remove a cluster from a node: `lxc cluster remove <mycluster>`. If server is dead, you might need to use the `--force` flag.
 - **NOTE ABOUT SUBNETS** If the different nodes are on different networks, you will have to configure the `fan.underlay_subnet` in the `lxc network edit ldxfan0` to something appropriate for all networks. For example, if the inital network is `142.130.6.0/24` and the other network is `142.130.4.0/24`, you will have to set the fan.underlay subnet to `142.130.0.0/16`
 
-
-
 ### ssh
 - create a user on the container: `lxc exec mycontainer -- adduser me`
 - enable password authentication: `lxc exec mycontainer -- nano /etc/ssh/sshd_config` --> `PasswordAuthentication yes`. Save and exit.
