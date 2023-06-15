@@ -12,11 +12,11 @@
 
 
 ### container operations
-- start a containter: `lxc start mycontainer`
-- stop a containter: `lxc stop mycontainer`
-- delete a containter (must be stopped): `lxc delete mycontainer`
-- rename a containter (must be stopped): `lxc move mycontainer mynewcontainer`
-- create a new containter from an old one (must be stopped): `lxc copy mycontainer mynewcontainer`
+- start a container: `lxc start mycontainer`
+- stop a container: `lxc stop mycontainer`
+- delete a container (must be stopped): `lxc delete mycontainer`
+- rename a container (must be stopped): `lxc move mycontainer mynewcontainer`
+- create a new container from an old one (must be stopped): `lxc copy mycontainer mynewcontainer`
 - run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
 - access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
 - push file from host to container: `lxc file push ./myfile mycontainer /full/path/`
