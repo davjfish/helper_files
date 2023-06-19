@@ -47,6 +47,7 @@
 
 ### clusters
 - **for clustering to work, all versions of lxd must be the same version!!**
+- Make sure that all members of the cluster have the same system time.
 - list all nodes in cluster `lxc cluster ls`
 - add a new node to the cluster: `lxc cluster add <FQDN of new host>`. This should be run on from within the cluster. Then run `sudo lxd init` on the new node and copy the token.
 - move an instance from one node to another: 
@@ -56,6 +57,8 @@
   lxc start c1
   ``` 
 - remove a cluster from a node: `lxc cluster remove <mycluster>`. If server is dead, you might need to use the `--force` flag.
+- You may also need to remove the old trusts on the cluster: `lxc config trust list`
+- It may also be necessary to reset the cluster db leader:  `sudo lxd cluster recover-from-quorum-loss`
 - **NOTE ABOUT SUBNETS** If the different nodes are on different networks, you will have to configure the `fan.underlay_subnet` in the `lxc network edit ldxfan0` to something appropriate for all networks. For example, if the inital network is `142.130.6.0/24` and the other network is `142.130.4.0/24`, you will have to set the fan.underlay subnet to `142.130.0.0/16`
 
 ### ssh
@@ -76,4 +79,3 @@
 - show a list of profiles: `lxc profile list`
 - edit an LXD profile: `lxs profile edit myprofile`
 - How to reassign profile: `lxc profile assign mycontainer newprofile`
-

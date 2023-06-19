@@ -6,6 +6,12 @@
 > include /etc/nginx/conf.d/*.conf; 
 > 
 > include /etc/nginx/sites-enabled/*;
+
+- also need to increase the max file size:
+> # allow larger file sizes
+> client_max_body_size 5M;
+  
+
 - sample site config to proxy for lxc container (/etc/nginx/conf.d/mysite.conf):
 ```
 server {
@@ -28,7 +34,6 @@ server {
                 include proxy_params;
         }
 }
-
 ```
   
 
