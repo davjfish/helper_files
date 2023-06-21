@@ -34,6 +34,7 @@
 - `du -sh [filelocation1] [filelocation2] ...| sort -h` view list of dirs and their sizes; sort by file size and summarize dirs
 - `uname -m`
 - `free -m` check memory usage
+- `lscpu` view cpu detail
 - `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
 
 ### File Compression 

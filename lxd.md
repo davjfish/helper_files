@@ -5,11 +5,11 @@
 - list containers `lxc ls`
 - create a new container: `lxc launch ubuntu:22.04 mycontainer`
   - specify a profile: `... -p myprofile` (see below for more about profile management)
-  - specify a config variable: `... -c limits.cpu=4 -c limits.memory=4GiB`
   - use VM instead of container: `... --vm`
+  - specify a config variable: `... -c limits.cpu=4 -c limits.memory=4GiB`
 - show the container info: `lxc info mycontainer`
 - show the config for a container: `lxc config show mycontainer`
-
+- restart / stop / start the lxd service: `sudo snap restart lxd`
 
 ### container operations
 - start a container: `lxc start mycontainer`
@@ -20,7 +20,8 @@
 - run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
 - access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
 - push file from host to container: `lxc file push ./myfile mycontainer /full/path/`
-
+- limit the memory of a container: `lxc config set mycontainer limits.memory 2GB`
+- limit the cpu usage of a container: `lxc config set mycontainer limits.cpu 1`
 
 ### Devices
 - mount a folder from host in container: `lxc config device add mycontainer data disk source=/path/from/host path=/mnt/mounted_host_folder`
@@ -60,6 +61,7 @@
 - You may also need to remove the old trusts on the cluster: `lxc config trust list`
 - It may also be necessary to reset the cluster db leader:  `sudo lxd cluster recover-from-quorum-loss`
 - **NOTE ABOUT SUBNETS** If the different nodes are on different networks, you will have to configure the `fan.underlay_subnet` in the `lxc network edit ldxfan0` to something appropriate for all networks. For example, if the inital network is `142.130.6.0/24` and the other network is `142.130.4.0/24`, you will have to set the fan.underlay subnet to `142.130.0.0/16`
+- sometimes things get ugly with clusters when one node is not behaving properly. you  might need to run the following command when recovering from a loss of quorum `sudo lxd cluster recover-from-quorum-loss`. Also, sometimes when adding a cluster fails, there will be ghost entries in the `sudo lxd cluster list` list. This might be true even when they do not show up when doing `lxc cluster list`. 
 
 ### ssh
 - create a user on the container: `lxc exec mycontainer -- adduser me`
@@ -69,6 +71,15 @@
 - list the storage pools: `lxc storage list`
 - more info about a storage pool: `lxc storage into mypool`
 - see the sizes of the different VMs and containers `zfs list | grep containers`
+- edit the details (e.g., description) of storage pool: `lxc storage edit mypool`
+- specify where to create a new instance: `lxc launch myimage mycontainer --storage pool1`
+- Resize a storage pool: https://linuxcontainers.org/lxd/docs/stable-5.0/howto/storage_pools/index.html#resize-a-storage-pool
+  ```
+  sudo truncate -s +5G <LXD_lib_dir>/disks/<pool_name>.img
+  sudo zpool set autoexpand=on <pool_name>
+  sudo zpool online -e <pool_name> <device_ID>  # sudo zpool status -vg <pool_name> to find the ID.
+  sudo zpool set autoexpand=off <pool_name>
+  ```
 
 ### networking
 - see of list of networks `lxc network list`
