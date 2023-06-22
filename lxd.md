@@ -25,7 +25,7 @@
 
 ### Devices
 - mount a folder from host in container: `lxc config device add mycontainer data disk source=/path/from/host path=/mnt/mounted_host_folder`
-- mount a usb device in a container: `lxc config device add mycontainer ttyACM0 unix-char mode=0666 gid=20 path=/dev/ttyACM0`
+- mount a usb device in a container: `lxc config device add mycontainer ttyUSB0 unix-char mode=0666 gid=20 path=/dev/ttyUSB0`
 
 ### Snapshots
 - create a snapshot of a container: `lxc snapshot mycontainer snapshot.mycontainer.0` use the `--resuse` flag to overwrite the file
@@ -41,7 +41,7 @@
 - rename an alias of an image `lxc image alias rename myalias myaliasNEW`
 - remove an alias of an image `lxc image alias delete myalias`
 - create a new image from a container `lxc publish mycontainer/mysnapshot --alias mycontainerimage`
-  - NOTE: best to publish from a snapshot otherwise you need to stop the container
+  - NOTE: best to publish from a snapshot otherwise you need to stop the container ALSO, if you use `lxc export` instead of lxc image export, the export will be much larger.
 - export an image to file `lxc image export mycontainerimage ~/myfolder`
 - import an image from file `lxc image import 725a02bf5e68.tar.gz` then `lxc image alias create mynewimagealias 725a02bf5e68`
 
