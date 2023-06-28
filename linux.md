@@ -67,7 +67,7 @@
   - `sudo timedatectl set-timezone name_from_above_list` e.g. America/Moncton
   - `sudo timedatectl set-ntp on` turn on timesyncd
   - `sudo timedatectl set-time '2015-11-23 08:10:40'` set date / time using timedatectl.. NOTE: you first have to turn off synchro
-  - set ntp server address --> first open  `sudo /etc/systemd/timesyncd.conf` then add the following line: `NTP=DFNSB2YwpDCP001.ENT.dfo-mpo.ca`
+  - set ntp server address --> first open  `sudo nano /etc/systemd/timesyncd.conf` then add the following line: `NTP=your.ntp.server.address  # DFNSB2YwpDCP001.ENT.dfo-mpo.ca (DFO), time.google.com, ...`
   - check the status of timesyncd `timedatectl show-timesync` and `timedatectl timesync-status`
  
 
