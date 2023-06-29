@@ -24,7 +24,7 @@
 - limit the cpu usage of a container: `lxc config set mycontainer limits.cpu 1`
 - export an instance (different from image export!!): `lxc export mycontainer ~/mycontainer.tgz --instance-only`
 - import an instance (different from image import!!): `lxc import ~/mycontainer.tgz mycontainer`
-
+- make it harder to delete a container: `lxc config set mycontainer security.protection.delete true`
 
 ### Devices
 - mount a folder from host in container: `lxc config device add mycontainer data disk source=/path/from/host path=/mnt/mounted_host_folder`
