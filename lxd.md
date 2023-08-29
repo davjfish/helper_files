@@ -60,7 +60,7 @@
 - You may also need to remove the old trusts on the cluster: `lxc config trust list`
 - It may also be necessary to reset the cluster db leader:  `sudo lxd cluster recover-from-quorum-loss`
 - **NOTE ABOUT SUBNETS** If the different nodes are on different networks, you will have to configure the `fan.underlay_subnet` in the `lxc network edit ldxfan0` to something appropriate for all networks. For example, if the inital network is `142.130.6.0/24` and the other network is `142.130.4.0/24`, you will have to set the fan.underlay subnet to `142.130.0.0/16`
-
+- **NOTE ABOUT UPDATES** Snap periodically runs `snap refresh` which can cause some havoc in the cluster if it upgrades lxd. When this happens, cluster nodes will become "blocked" and go offline (the containers stay up though).  The strong indicator is that the lxd versions will be out of sync and lxc commands will stop working on upgraded nodes. To upgrade the remaining nodes, run `sudo snap stop lxd`, `sudo snap refresh lxd` and then restart any containers that were stopped.   
 ### ssh
 - create a user on the container: `lxc exec mycontainer -- adduser me`
 - enable password authentication: `lxc exec mycontainer -- nano /etc/ssh/sshd_config` --> `PasswordAuthentication yes`. Save and exit.
