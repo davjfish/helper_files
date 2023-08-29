@@ -36,5 +36,18 @@ server {
 }
 ```
   
+- example config to forward ssh access through a port
+```
+upstream my-config-name {
+      server 240.217.0.190:22;
+}
+
+server {
+  listen 22018;
+  proxy_pass my-config-name;
+}
+```
+
+
 
 
