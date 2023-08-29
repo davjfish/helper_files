@@ -147,3 +147,14 @@ git fetch --prune -v
 
 ### See the commit version / hash 
 `git rev-parse --short HEAD`
+
+
+### If you want to roll back the last commit you made (locally and remote)
+```
+git reset --hard HEAD^
+git push origin -f
+```
+
+
+### check the tag of the branch you are currently on
+`git describe --tags HEAD`
