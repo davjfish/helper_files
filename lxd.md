@@ -20,6 +20,7 @@
 - run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
 - access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
 - push file from host to container: `lxc file push ./myfile mycontainer /full/path/`
+- pull file from instance to host: `lxc file pull mycontainer/path/to/file /path/to/dest/on/host`
 - limit the memory of a container: `lxc config set mycontainer limits.memory 2GB`
 - limit the cpu usage of a container: `lxc config set mycontainer limits.cpu 1`
 - export an instance (different from image export!!): `lxc export mycontainer ~/mycontainer.tgz --instance-only`
