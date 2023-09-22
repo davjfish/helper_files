@@ -8,18 +8,23 @@
 - send output from command to a files: `some_command >> some_file.txt` # append output from command to a files
 - paginate using a pager: `some_command -options | less`
 - search for term within output (only bring up relevant lines): `some_command -options | grep "search_term"`
-- view progress on a cp operation (using rsync): `rsync -avzP copy_src copy_dst` NOTE: assuming copy_src is a dir, there should be no trailing slash. Same for
-  copy_dst
 - nohup [command to execute from ssh that will be orphaned and continue running even when session is closed]
-- create a soft link: `ln -s /target/file /my/link/file`
 - `sudo apt-get update` updates all packages
 - `sudo apt-get upgrade` upgrades all packages
 - show all installed packages `apt list --installed`
 - read mail for user logged in `sudo less /var/mail/$(whoami)`
 - find a program: `whereis git`
+
+- Change the machine's hostname `hostnamectl set-hostname my-new-hostname`
+
+### File Transfers and manipulations
 - empty the contents of a large file: `> error.log` or `: > error.log` or `true > error.log` or `cat /dev/null > error.log` or `cp /dev/null error.log`
   or `echo "" > error.log`
-- Change the machine's hostname `hostnamectl set-hostname my-new-hostname`
+- create a soft link: `ln -s /target/file /my/link/file`
+- view files using RSYNC utility
+  - Basic usage: `rsync -a copy_src copy_dst` NOTE: assuming copy_src is a dir, there should be **no trailing slash**. Same for copy_dst
+  - use the `--progress` option to view progress on individual files
+  - use the `-z` option to compress files before transferring (don't use this if transferring many files)
 
 ## SYSTEM / FILE SYSTEM INFO
 
