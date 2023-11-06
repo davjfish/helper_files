@@ -19,7 +19,7 @@
 - create a new container from an old one (must be stopped): `lxc copy mycontainer mynewcontainer`
 - run a command from the inside of a container: `lxc exec mycontainer -- service --status-all`
 - access bash shell in a container: `lxc exec mycontainer -- bash` or `lxc shell mycontainer`
-- push file from host to container: `lxc file push ./myfile mycontainer /full/path/`
+- push file from host to container: `lxc file push ./myfile.ext mycontainer/full/path/to/file.ext`
 - pull file from instance to host: `lxc file pull mycontainer/path/to/file /path/to/dest/on/host`
 - limit the memory of a container: `lxc config set mycontainer limits.memory 2GB`
 - limit the cpu usage of a container: `lxc config set mycontainer limits.cpu 1`
