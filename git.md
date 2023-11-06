@@ -90,6 +90,11 @@ git diff-tree --no-commit-id --name-only -r <commit-ish>
 ## To revert to a previous commit, ignoring any changes:
 `git reset --hard HEAD`
 
+## Undo changes made in previous commit, but keep any later commits:
+ - `git revert HASH`
+ - If undoing a merge commit: `git revert HASH -m 1/2` use 1 or 2 to select which parent branch should be reverted too.  
+
+
 ## To force overwrite of local file with what's on origin/master
 - If you want to overwrite only one file:
 ```
