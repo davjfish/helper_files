@@ -338,6 +338,12 @@ sudo ufw default allow outgoing
 - show pending rules: `sudo ufw show added`
 - allow all and any incoming traffic on a certain port: `sudo ufw allow from any to any port 19132 proto tcp`
 
+### I/O
+
+- display output from serial port: `screen /dev/ttyS0/ 4800`
+- listen to a UPD port: `netcat -l -u -p 4001`
+
+
 # random jewels
 
 - how to adjust behavior when closing the lid of a
