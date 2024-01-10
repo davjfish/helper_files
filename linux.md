@@ -191,7 +191,7 @@ USERNAME="" && sudo adduser $USERNAME && sudo smbpasswd -a $USERNAME
 
 ## Users and Groups
 
-- `who -H` see who is currently logged in
+- `who -H` see who is currently logged in, or just `w`
 - `cat /etc/passwd | less` view all users on sys
 - `sudo adduser <newusername>` add new user
 - `sudo usermod -aG sudo <username>` add user to the sudo group
@@ -213,6 +213,8 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
 - `sudo addgroup <groupname>` create a new group
 - `sudo groupdel <groupname>` delete a group
 - `su root` switch user to root (BE CAREFUL)
+- logout a user `sudo pkill -KILL -u MYSUSER`
+
 
 ## Scheduling Processes
 
