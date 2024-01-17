@@ -375,3 +375,18 @@ apt-get -y autoremove
 # reboot your system every day at 4:05am
 0 4   *   *   *    /sbin/shutdown -r +5
 ```
+
+# Disable Shutdown, Restart, Suspend, etc., for all users in GUI
+
+https://askubuntu.com/questions/93542/how-to-disable-shutdown-reboot-suspend-hibernate/93956#93956
+
+- `sudo nano /etc/polkit-1/localauthority/50-local.d/restrict-login-powermgmt.pkla`
+- add the following lines:
+  ```
+  [Disable lightdm PowerMgmt]
+  Identity=unix-user:*
+  Action=org.freedesktop.login1.reboot;org.freedesktop.login1.reboot-multiple-sessions;org.freedesktop.login1.power-off;org.freedesktop.login1.power-off-multiple-sessions;org.freedesktop.login1.suspend;org.freedesktop.login1.suspend-multiple-sessions;org.freedesktop.login1.hibernate;org.freedesktop.login1.hibernate-multiple-sessions
+  ResultAny=no
+  ResultInactive=no
+  ResultActive=no
+  ```
