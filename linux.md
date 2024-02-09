@@ -390,3 +390,14 @@ https://askubuntu.com/questions/93542/how-to-disable-shutdown-reboot-suspend-hib
   ResultInactive=no
   ResultActive=no
   ```
+  
+
+### Create a bootable startup disk
+
+(from https://www.tecmint.com/create-bootable-ubuntu-usb-disk/)
+
+- install gddrescue: `sudo apt install gddrescue`
+- use `lsblk` to identify usb key, e.g., `/dev/sdb`
+- then using ddrescue: `sudo ddrescue ubuntu-20.04-beta-desktop-amd64.iso /dev/sdb --force -D`
+
+
