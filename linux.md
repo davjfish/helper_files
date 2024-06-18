@@ -224,6 +224,8 @@ newUsername="" && oldUsername="" && sudo usermod -l $newUsername $oldUsername &&
     - do something every day (at midnight) --> ```0 0 *  * * bash /usr/local/bin/my_daily_script_to_run.sh```
     - do something every hour --> ```0 * *  * * bash /usr/local/bin/my_hourly_script_to_run.sh```
 - see below for a good autoupdate script and related crontab entries
+- check logs from running crontab: `sudo grep CRON /var/log/syslog`
+
 
 ## Printing
 
