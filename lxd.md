@@ -97,3 +97,17 @@
 - show a list of profiles: `lxc profile list`
 - edit an LXD profile: `lxs profile edit myprofile`
 - How to reassign profile: `lxc profile assign mycontainer newprofile`
+
+
+# Remote LXD servers and clients:
+(https://documentation.ubuntu.com/lxd/en/latest/howto/server_expose/#server-expose)
+
+## lxd remote server
+- on the server you want other's to be able to connect with, you have to generate trust tokens: `lxc config trust add`
+  - then enter the name of the lxd remote client
+- you can see the list of tokens with: `lxc config trust list`
+
+## lxc remote client
+- add the remote server: `lxc remote add my-remote-server my-remote-server-FQDN`.
+  - you will then be prompted to enter the token
+- copy and instance to the remote server: `lxc copy CONTAINER_NAME[/SNAPSHOT_NAME] REMOTE_SERVER:CONTAINER_NAME`
