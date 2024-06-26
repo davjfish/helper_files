@@ -2,7 +2,7 @@
 
 ## General / Misc
 
-- reboot: `shutdown -h now | +10 | 17:00 "optional message"`
+- reboot: `shutdown -h now | +10 | 17:00 "optional message"`; another "more serious" way to do this is described here https://www.linuxjournal.com/content/rebooting-magic-way
 - concatenate; will output files to shell; read only: `cat some_file.txt`
 - piping to text files: `some_command > some_file.txt`
 - send output from command to a files: `some_command >> some_file.txt` # append output from command to a files
