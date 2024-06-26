@@ -401,5 +401,5 @@ https://askubuntu.com/questions/93542/how-to-disable-shutdown-reboot-suspend-hib
 - install gddrescue: `sudo apt install gddrescue`
 - use `lsblk` to identify usb key, e.g., `/dev/sdb`
 - then using ddrescue: `sudo ddrescue ubuntu-20.04-beta-desktop-amd64.iso /dev/sdb --force -D`
-
+- if using desktop, sometime to create the disk you have to be in sudo mode. Therefore, fom cmd terminal run: `sudo usb-creator-gtk` instead of opening the app via GUI
 
