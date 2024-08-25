@@ -403,3 +403,11 @@ https://askubuntu.com/questions/93542/how-to-disable-shutdown-reboot-suspend-hib
 - then using ddrescue: `sudo ddrescue ubuntu-20.04-beta-desktop-amd64.iso /dev/sdb --force -D`
 - if using desktop, sometime to create the disk you have to be in sudo mode. Therefore, fom cmd terminal run: `sudo usb-creator-gtk` instead of opening the app via GUI
 
+### Logical Volume Manager
+
+- How to expand a volume
+  - Described here: https://packetpushers.net/blog/ubuntu-extend-your-default-lvm-space/  
+  - `sudo vgdisplay` to see how much the current volume can be expanded
+  - `sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv` to expand the volume; confirm with `vgdisplay`
+  - `sudo resize2fs /dev/mapper/ubuntu–vg-ubuntu–lv` to extend the actual filesystem
+- 
