@@ -21,3 +21,18 @@ Or in one shot:
 ``` bash
 mkdir ~/.ssh && echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAqUBwlEMj1Pd6KPC2lW54jiFDrw4/paRpKlWCQuIP1rRG2GkbhKupCrKafZkk37yF0AWh6BztKpjMR3GLGsph89FKwg1m6AiMoyJ/x3QhlpLN6aZg6apM1X/56uENoF+Yu2OjeKQ0QsfIs3BTqljG8xChRquZAl2HcvXDaLlKSK0DDjeJ+6LZHxgCPkE30tYh5drbsHTJyqzM+1BQ3PAN60hfYGYh7qURngBgabJNhgJkEjhxGvu0C9TcAA0RoyNuqUgQhUJ2JJB278XMMwwarbs/+htw36gb/DqkuW7C8WwVEzPClqTCHnsLNdLnTFcOE/AYEMOmRJ76tIPOiv5Kxw== davids-rsa-key-20230307" > ~/.ssh/authorized_keys
 ```
+
+
+## Secure file transfer
+
+From https://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh
+
+Syntax:
+`scp <source> <destination>`
+
+To copy a file from B to A while logged into B:
+`scp /path/to/file username@192.168.0.100:/path/to/destination`
+
+To copy a file from B to A while logged into A:
+`scp username@192.168.0.100:/path/to/file /path/to/destination`
+
