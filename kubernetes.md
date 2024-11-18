@@ -18,6 +18,7 @@
 ### Storage
  - Two parts are necessary a volume and a claim. There is a one-to-one relationship between volumes and claims. The exists as two entities because sometimes the volume can be on a cloud service and you would only need the claim.   
  - For local storage, it makes sense to create them at the same time
+ - 
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -106,7 +107,12 @@ kubectl create secret docker-registry dmappsdevtestacr \
     --docker-password=THE_PASSWORD
 ```
 
-### Deployment
+### Helm
+ - Helm allows for the use of variables in the .yaml templates and provides a nice way of deploying everything all at once
+ - To perform an update on a mission:
+1. Make sure that the new docker image exits on Azure
+2. Update the image tag in `mission.yamls` (unless using `latest`)
+3. Run `helm upgrade $RELEASE_NAME ~/$PATH_TO_HELM_CHART/ -f ~/$PATH_TO_MISSION.yaml`
 
 
 Useful sites:
