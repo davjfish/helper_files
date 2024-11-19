@@ -57,7 +57,8 @@ spec:
 ```
 
 ### Services
-- Mainly use loadbalancers
+- Mainly use the default clusterIP
+- Need these to be stable IP's, because pods get a new ones everytime they are recreated
 - These work by listening on a port and routing traffic to specific pods. The pods are selected using the `selector` 
 - The port being listened on can be an externalIP, this is how we can make pods accessible to the network
 - If no externalIP is specified, the listened port will be on the k8s network and can be accessed from other pods/services with http://SERVICENAME:TARGETPORT;
