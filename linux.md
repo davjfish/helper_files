@@ -410,4 +410,17 @@ https://askubuntu.com/questions/93542/how-to-disable-shutdown-reboot-suspend-hib
   - `sudo vgdisplay` to see how much the current volume can be expanded
   - `sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv` to expand the volume; confirm with `vgdisplay`
   - `sudo resize2fs /dev/mapper/ubuntu–vg-ubuntu–lv` to extend the actual filesystem
-- 
+
+
+# Sync with google drive (Rclone)
+
+ - install with apt
+ - will need to run `rclone config` to link to google account, see docs: https://rclone.org/drive/
+ - Need to put in the google drive location "hash" as the "root_folder_id", this lets rclone know which folder to link to
+ - then can copy files over with:  
+ 
+``` bash
+rclone copy rclone_test: /path/to/local/dir --bwlimit=8.5M --progress
+# 'rclone_test:' is the name of the config / drive directory to copy
+# rclone copy will only add, rclone sync will also delete things
+```
