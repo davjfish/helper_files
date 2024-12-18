@@ -58,7 +58,7 @@ spec:
 
 ### Services
 - Mainly use the default clusterIP
-- Need these to be stable IP's, because pods get a new ones everytime they are recreated
+- These provide stable endpoints, because pods get a new ones everytime they are recreated
 - These work by listening on a port and routing traffic to specific pods. The pods are selected using the `selector` 
 - The port being listened on can be an externalIP, this is how we can make pods accessible to the network
 - If no externalIP is specified, the listened port will be on the k8s network and can be accessed from other pods/services with http://SERVICENAME:TARGETPORT;
@@ -83,6 +83,61 @@ spec:
   externalIPs:
     - 142.#.#.#  # IP of host, this lets the service listen directly on the host instead of the internal k8s network
 ```
+
+## Ingress
+Ingress is used to map external traffic to cluster services.  Ideally, subdomains are used to map between different services through a loadbalencer such as MetalLB, but these are not feasible inside the DFO Network.
+Instead, there is a dance using nginx to proxy pass various ports.  
+
+
+Nginx can listen on a range of ports and conditionally map these to the ingress controller: 
+```
+server {
+        # listen to these ports:
+        listen 23000-24000 default_server; 
+        server_name iml-science-n0;
+        location / {
+          # need to manually build the proxy pass location due to variables in it.
+          # the ip below is the clusterip of the ingress controller, which can be found with: kubectl get svc -n ingress-nginx
+          set $FOO 10.104.212.202/$server_port/;
+          rewrite /(.*) /$1 break;
+          proxy_pass http://$FOO/$1$is_args$args;
+        }
+}
+```
+
+The ingress files on the receiving end should look like this:
+
+```yaml
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2  # $2 is to pass the unmatched url path
+  name: ingress-{{ .Values.mission }}
+  namespace: andes-{{ .Values.mission }}
+spec:
+  ingressClassName: nginx
+  rules:
+  -  http:
+      paths:
+      - path: /{{ .Values.nodePort }}(/|$)(.*)  # will match to things like example.com/23000/... (... becomes $2)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: nginx-service-{{ .Release.Name }}  # service to send these requests too
+            port:
+              number: 80  # port on service
+
+
+```
+The full path of jumps looks like:
+ - `iml-science-n0:23000/en/settings/...` Original request, goes to nginx
+ - `INGRESS_CONTROLLER_IP/23000/en/settings/...` Request proxied from nginx to ingress
+ - `nginx-service-andes-mission-23000/en/settings/...` Request proxied from ingress to service
+ - `andes-service-andes-mission-23000/en/settings/...` Request proxied from nginx to andes service
+ - `POD_IP:8000/en/settings/...` Request sent into gunicorn on the pod running andes/django 
 
 
 
