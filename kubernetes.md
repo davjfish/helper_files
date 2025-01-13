@@ -174,3 +174,41 @@ kubectl create secret docker-registry dmappsdevtestacr \
 Useful sites:
 https://dev.to/mkalioby/django-on-k8s-part-iii-running-on-kubernetes-2m91
 https://medium.com/@tech_with_mike/how-to-deploy-a-django-app-over-a-kubernetes-cluster-with-video-bc5c807d80e2
+
+
+# Updgrading cluster:
+ - Kubernetes version system is major.minor.patch, ie 1.31.2
+ - First need to upgrade the control plane node, then the workers
+ - Process of updating nodes is:
+   - Update the package repository (https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/change-package-repository/) 
+   - update kubeadm
+   - drain node
+   - upgrade kubectl and kubelet
+   - uncordon the node
+
+### Commnds for all this (on workers) look something like:
+```bash
+sudo apt-mark unhold kubeadm && \
+sudo apt-get update && sudo apt-get install -y kubeadm='1.32.0-1.1' && \
+sudo apt-mark hold kubeadm
+
+sudo kubeadm upgrade node
+
+# ON CONTROL PLANE NODE:
+kubectl drain iml-science-n3 --ignore-daemonsets
+
+
+sudo apt-mark unhold kubelet kubectl && \
+sudo apt-get update && sudo apt-get install -y kubelet='1.32.0-1.1' kubectl='1.32.0-1.1' && \
+sudo apt-mark hold kubelet kubectl
+
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+
+
+# ON CONTROL PLANE NODE:
+kubectl uncordon iml-science-n3
+```
+### Pod disruption budget:
+May need to increase the pod disruption bubget for the calico pods and increase to >1: 
+![img.png](/screenshots/k8s_pod_disruption_budget.png)
