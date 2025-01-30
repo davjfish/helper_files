@@ -163,12 +163,15 @@ kubectl create secret docker-registry dmappsdevtestacr \
     --docker-password=THE_PASSWORD
 ```
 
-### Helm
+# Helm
  - Helm allows for the use of variables in the .yaml templates and provides a nice way of deploying everything all at once
  - To perform an update on a mission:
 1. Make sure that the new docker image exits on Azure
 2. Update the image tag in `mission.yamls` (unless using `latest`)
 3. Run `helm upgrade $RELEASE_NAME ~/$PATH_TO_HELM_CHART/ -f ~/$PATH_TO_MISSION.yaml`
+ - To install a mission for the first time e.g:
+  `helm install iml2024033 ~/kubernetes/andes -f ~/kubernetes/andes/missions/iml-2024-033.yaml`
+Where `iml2024033` is the $RELEASE_NAME
 
 
 Useful sites:
