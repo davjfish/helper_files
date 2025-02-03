@@ -19,4 +19,5 @@
 - start a container `docker start mycontainer`
 - stop a container `docker stop mycontainer`
 - for a django project `docker run -p 8000:8000 -d mycontname` (note the `-d` is to detach the process from the command line)
+- open a shell into a container: `docker exec -it MY_CONT_NAME [bash|sh]` 
 
