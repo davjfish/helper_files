@@ -18,6 +18,5 @@
 - check the logs of a container as a stream 'docker logs -f my_cont_name'
 - start a container `docker start mycontainer`
 - stop a container `docker stop mycontainer`
- 
-- for a django project `docker run --name mycontname -p 8000:8000 -d` (note the `-d` is to detach the process from the command line)
+- for a django project `docker run -p 8000:8000 -d mycontname` (note the `-d` is to detach the process from the command line)
 
