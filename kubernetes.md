@@ -14,6 +14,7 @@
  - Get pod logs: `kubectl logs $PODNAME -n $NAMESPACE`
  - Enter shell in pod: `kubectl exec -n $NAMESPACE -it $PODNAME -- bash`
  - Delete/restart: `kubectl delete pod $PODNAME -n $NAMESPACE`
+ - Clean up failed pods:  `kubectl delete pods --field-selector status.phase=Failed --namespace=$NAMESPACE`
 
 ### Storage
  - Two parts are necessary a volume and a claim. There is a one-to-one relationship between volumes and claims. The exists as two entities because sometimes the volume can be on a cloud service and you would only need the claim.   
