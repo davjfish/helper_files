@@ -19,6 +19,7 @@
 - Delete/restart: `kubectl delete pod $PODNAME -n $NAMESPACE`
 - determine the memory usage of a pod from a given namespace: `kubectl top pod --namespace=my_namespace`
 - determine the memory usage of a pod from all namespaces: `kubectl top pod -A`
+- Clean up failed pods:  `kubectl delete pods --field-selector status.phase=Failed --namespace=$NAMESPACE`
 
 ### Storage
 
