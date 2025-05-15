@@ -173,3 +173,75 @@ BEGIN
   set new.[field1] = new.[field2] ...;
 END
 ```
+
+## Set up Replication
+On master/source:
+ - Update config file
+ - Add replication user
+ - Lock db, get a sql backup and inary log coordinate, unlock db
+
+```
+# source config: /etc/mysql/mysql.conf.d/mysqld.cnf
+# set the following:
+bind-address            = 0.0.0.0
+server-id               = 1  # 1 is arbitray, just needs to be unique amongs all replica servers
+log_bin                       = /var/log/mysql/mysql-bin.log
+binlog_do_db            = dmapps_dev # your specific db name here, repeat line for each db needing replication
+# then: sudo systemctl restart mysql
+```
+```mysql
+# in mysql
+CREATE USER 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'my_short_password_max_32';
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+FLUSH PRIVILEGES;
+```
+
+```mysql
+FLUSH TABLES WITH READ LOCK; # will lock the db :(
+SHOW MASTER STATUS;  # note file (e.g. mysql-bin.000001) and position (e.g. 999)
+# in DIFFERENT ssh session: sudo mysqldump -u root dmapps_dev > db.sql
+UNLOCK TABLES;
+```
+
+On slave/replica:
+ - Update config file
+ - Create db, load sql data
+ - Start replication
+
+```
+# replica config: /etc/mysql/mysql.conf.d/mysqld.cnf
+# set the following:
+server-id               = 2  # 2 is arbitray, just needs to be unique amongs all replica servers
+log_bin                       = /var/log/mysql/mysql-bin.log
+binlog_do_db            = dmapps_dev # your specific db name here, repeat line for each db needing replication
+relay-log               = /var/log/mysql/mysql-relay-bin.log
+# then: sudo systemctl restart mysql
+```
+
+```bash
+# create the db and load the sql into it:
+CREATE DATABASE dmapps_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+sudo mysql dmapps_dev < db.sql
+```
+```mysql
+CHANGE REPLICATION SOURCE TO
+SOURCE_HOST='glf-science-cadi.ent.dfo-mpo.ca',  # master server host name
+SOURCE_USER='replica_user',
+SOURCE_PASSWORD='my_short_password_max_32',
+SOURCE_LOG_FILE='mysql-bin.000001',  # from the SHOW MASTER STATUS command on master
+SOURCE_LOG_POS=3255;  # from the SHOW MASTER STATUS command on master
+
+START REPLICA;
+# may also need: 
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1;
+START REPLICA;
+```
+
+```mysql
+# Check status with:
+SHOW REPLICA STATUS\G;
+# make sure that this is a yes in the output:
+# Replica_SQL_Running: Yes
+
+
+```
