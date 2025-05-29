@@ -431,3 +431,8 @@ rclone copy rclone_test: /path/to/local/dir --bwlimit=8.5M --progress
 # 'rclone_test:' is the name of the config / drive directory to copy
 # rclone copy will only add, rclone sync will also delete things
 ```
+
+
+# Get an SSL certificate:
+ - Look into this ticket: [https://github.com/dfo-gulf-science/CADI/issues/142](https://github.com/dfo-gulf-science/CADI/issues/142)
+ - [https://dev.azure.com/foc-poc/Internal%20Developer%20Portal/_wiki/wikis/Internal-Developer-Portal.wiki/3693/SSL-Certificate-Request-New-or-Updated-Intranet-Certificate](https://dev.azure.com/foc-poc/Internal%20Developer%20Portal/_wiki/wikis/Internal-Developer-Portal.wiki/3693/SSL-Certificate-Request-New-or-Updated-Intranet-Certificate)
