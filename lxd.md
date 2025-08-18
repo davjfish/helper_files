@@ -111,3 +111,4 @@
 - add the remote server: `lxc remote add my-remote-server my-remote-server-FQDN`.
   - you will then be prompted to enter the token
 - copy and instance to the remote server: `lxc copy CONTAINER_NAME[/SNAPSHOT_NAME] REMOTE_SERVER:CONTAINER_NAME`
+

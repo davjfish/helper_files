@@ -14,7 +14,7 @@
 - show all installed packages `apt list --installed`
 - read mail for user logged in `sudo less /var/mail/$(whoami)`
 - find a program: `whereis git`
-
+- search for text inside of files: `grep -rnw '/path/to/somewhere/' -e 'pattern'` # https://stackoverflow.com/questions/16956810/find-all-files-containing-a-specific-text-string-on-linux
 - Change the machine's hostname `hostnamectl set-hostname my-new-hostname`
 
 ### File Transfers and manipulations
