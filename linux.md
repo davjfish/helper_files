@@ -42,14 +42,21 @@
 - `lscpu` view cpu detail
 - `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
 
-### File Compression 
+### File Compression, decompression and tarballs
 
 (inspired by: [https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/))
 
-- Compress an Entire Directory or a Single File: `tar -czvf name-of-archive.tar.gz /path/to/directory-or-file`
+- Compress an Entire Directory or a Single File: `tar -czvf name-of-archive.tar.gz /path/to/directory-or-file` or no compression `tar -cvf name-of-archive.tar /path/to/directory-or-file`
 - Compress Multiple Directories or Files at Once: `tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/Documents/notes.txt`
 - Exclude Directories and Files: `tar -czvf archive.tar.gz /home/ubuntu --exclude=/home/ubuntu/Downloads --exclude=/home/ubuntu/.cache`
 - Extract an Archive: `tar -xzvf archive.tar.gz` or `tar -xzvf archive.tar.gz -C /tmp`
+
+There is a great tool call fast-jar which can be install with `sudo apt install fastjar`. This seems to work really well for corrupted zips as well. Does not work for tar.gz
+- extract a file: `jar xvf myfile.zip`
+- use jar to store many files in a single `.jar` file: `jar cvf myfile.jar.zip /path/to/directory-or-file` or no compression `jar cvf0 myfile.jar /path/to/directory-or-file`
+
+
+
 
 ### Steps to reformat a flash drive [https://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu](https://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu)
 
@@ -424,3 +431,8 @@ rclone copy rclone_test: /path/to/local/dir --bwlimit=8.5M --progress
 # 'rclone_test:' is the name of the config / drive directory to copy
 # rclone copy will only add, rclone sync will also delete things
 ```
+
+
+# Get an SSL certificate:
+ - Look into this ticket: [https://github.com/dfo-gulf-science/CADI/issues/142](https://github.com/dfo-gulf-science/CADI/issues/142)
+ - [https://dev.azure.com/foc-poc/Internal%20Developer%20Portal/_wiki/wikis/Internal-Developer-Portal.wiki/3693/SSL-Certificate-Request-New-or-Updated-Intranet-Certificate](https://dev.azure.com/foc-poc/Internal%20Developer%20Portal/_wiki/wikis/Internal-Developer-Portal.wiki/3693/SSL-Certificate-Request-New-or-Updated-Intranet-Certificate)
