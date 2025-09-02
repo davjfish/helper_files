@@ -41,6 +41,7 @@
 - `free -m` check memory usage
 - `lscpu` view cpu detail
 - `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
+- `sudo grep -rnw '/dir-to-search-recursively-from' -e 'search term'`
 
 ### File Compression, decompression and tarballs
 
