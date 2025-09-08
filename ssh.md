@@ -19,7 +19,7 @@
 Or in one shot:
 
 ``` bash
-mkdir ~/.ssh && echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAqUBwlEMj1Pd6KPC2lW54jiFDrw4/paRpKlWCQuIP1rRG2GkbhKupCrKafZkk37yF0AWh6BztKpjMR3GLGsph89FKwg1m6AiMoyJ/x3QhlpLN6aZg6apM1X/56uENoF+Yu2OjeKQ0QsfIs3BTqljG8xChRquZAl2HcvXDaLlKSK0DDjeJ+6LZHxgCPkE30tYh5drbsHTJyqzM+1BQ3PAN60hfYGYh7qURngBgabJNhgJkEjhxGvu0C9TcAA0RoyNuqUgQhUJ2JJB278XMMwwarbs/+htw36gb/DqkuW7C8WwVEzPClqTCHnsLNdLnTFcOE/AYEMOmRJ76tIPOiv5Kxw== davids-rsa-key-20230307" > ~/.ssh/authorized_keys
+mkdir ~/.ssh && echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILvweZYEWpjXV7yti88KVYMR1GF+VcLkNMTCLaxQQocR" > ~/.ssh/authorized_keys
 ```
 
 
