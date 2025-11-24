@@ -220,7 +220,7 @@ relay-log               = /var/log/mysql/mysql-relay-bin.log
 
 ```bash
 # create the db and load the sql into it:
-CREATE DATABASE dmapps_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE dmapps_dev CHARACTER SET utf8mb3;
 sudo mysql dmapps_dev < db.sql
 ```
 ```mysql
