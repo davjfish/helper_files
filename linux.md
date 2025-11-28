@@ -14,7 +14,7 @@
 - show all installed packages `apt list --installed`
 - read mail for user logged in `sudo less /var/mail/$(whoami)`
 - find a program: `whereis git`
-
+- search for text inside of files: `grep -rnw '/path/to/somewhere/' -e 'pattern'` # https://stackoverflow.com/questions/16956810/find-all-files-containing-a-specific-text-string-on-linux
 - Change the machine's hostname `hostnamectl set-hostname my-new-hostname`
 
 ### File Transfers and manipulations
@@ -41,6 +41,7 @@
 - `free -m` check memory usage
 - `lscpu` view cpu detail
 - `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
+- `sudo grep -rnw '/dir-to-search-recursively-from' -e 'search term'`
 
 ### File Compression, decompression and tarballs
 
@@ -431,3 +432,8 @@ rclone copy rclone_test: /path/to/local/dir --bwlimit=8.5M --progress
 # 'rclone_test:' is the name of the config / drive directory to copy
 # rclone copy will only add, rclone sync will also delete things
 ```
+
+
+# Get an SSL certificate:
+ - Look into this ticket: [https://github.com/dfo-gulf-science/CADI/issues/142](https://github.com/dfo-gulf-science/CADI/issues/142)
+ - [https://dev.azure.com/foc-poc/Internal%20Developer%20Portal/_wiki/wikis/Internal-Developer-Portal.wiki/3693/SSL-Certificate-Request-New-or-Updated-Intranet-Certificate](https://dev.azure.com/foc-poc/Internal%20Developer%20Portal/_wiki/wikis/Internal-Developer-Portal.wiki/3693/SSL-Certificate-Request-New-or-Updated-Intranet-Certificate)
