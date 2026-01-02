@@ -346,7 +346,17 @@ sudo ufw default allow outgoing
 - checking the status of rules: `sudo ufw status verbose`
 - enable rules: `sudo ufw enable` (note: for each new rule added, you will have to enable)
 - allow samba: `sudo ufw allow samba`
-- reset all rules: `sudo ufw --force dis able` then `sudo ufw --force reset` then `sudo ufw default deny incoming` then `sudo ufw default allow outgoing`
+- reset all rules: 
+  ```bash
+  sudo ufw --force dis able
+  sudo ufw --force reset
+  sudo ufw default deny incoming
+  sudo ufw default allow outgoing
+  # suggestions
+  sudo ufw allow ssh 
+  sudo ufw allow from 192.168.0.0/24  # or whatever the local subnet pattern is
+  sudo ufw allow from x.y.0.0/16 to any port 80 # some other ip network you want to allow to a specific port
+  ```
 - show pending rules: `sudo ufw show added`
 - allow all and any incoming traffic on a certain port: `sudo ufw allow from any to any port 19132 proto tcp`
 
