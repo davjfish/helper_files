@@ -76,7 +76,7 @@
 
 ### Storage
 - list the storage pools: `lxc storage list`
-- more info about a storage pool: `lxc storage into mypool`
+- more info about a storage pool: `lxc storage info mypool`
 - see the sizes of the different VMs and containers `zfs list | grep containers`
 - edit the details (e.g., description) of storage pool: `lxc storage edit mypool`
 - specify where to create a new instance: `lxc launch myimage mycontainer --storage pool1`
