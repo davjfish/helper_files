@@ -80,7 +80,9 @@
 - see the sizes of the different VMs and containers `zfs list | grep containers`
 - edit the details (e.g., description) of storage pool: `lxc storage edit mypool`
 - specify where to create a new instance: `lxc launch myimage mycontainer --storage pool1`
-- Resize a storage pool: https://linuxcontainers.org/lxd/docs/stable-5.0/howto/storage_pools/index.html#resize-a-storage-pool
+- Resize a storage pool:
+  - New way: ```lxc storage set default size=200GiB```
+  - Old way: https://linuxcontainers.org/lxd/docs/stable-5.0/howto/storage_pools/index.html#resize-a-storage-pool
   ```
   sudo truncate -s +275G /var/snap/lxd/common/lxd/disks/<pool_name>.img
   sudo zpool set autoexpand=on <pool_name>
