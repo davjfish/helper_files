@@ -199,7 +199,7 @@ FLUSH PRIVILEGES;
 ```mysql
 FLUSH TABLES WITH READ LOCK; # will lock the db :(
 SHOW MASTER STATUS;  # note file (e.g. mysql-bin.000001) and position (e.g. 999)
-# in DIFFERENT ssh session: sudo mysqldump -u root dmapps_dev > db.sql
+# in DIFFERENT ssh session: sudo mysqldump -u root dmapps > db.sql
 UNLOCK TABLES;
 ```
 
