@@ -219,9 +219,9 @@ relay-log               = /var/log/mysql/mysql-relay-bin.log
 ```
 
 ```bash
-# create the db and load the sql into it:
-CREATE DATABASE dmapps_replica CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci;
-sudo mysql dmapps_replica < db.sql
+# create the db and load the sql into it.  Note that the name must match the master db's name
+CREATE DATABASE mydb_leader CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci;
+sudo mysql mydb_leader < db.sql
 ```
 ```mysql
 CHANGE REPLICATION SOURCE TO
