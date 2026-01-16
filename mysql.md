@@ -213,19 +213,19 @@ On slave/replica:
 # set the following:
 server-id               = 2  # 2 is arbitray, just needs to be unique amongs all replica servers
 log_bin                       = /var/log/mysql/mysql-bin.log
-binlog_do_db            = dmapps_dev # your specific db name here, repeat line for each db needing replication
+binlog_do_db            = dmapps_replica # your specific db name here, repeat line for each db needing replication
 relay-log               = /var/log/mysql/mysql-relay-bin.log
 # then: sudo systemctl restart mysql
 ```
 
 ```bash
 # create the db and load the sql into it:
-CREATE DATABASE dmapps_dev CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci;
-sudo mysql dmapps_dev < db.sql
+CREATE DATABASE dmapps_replica CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci;
+sudo mysql dmapps_replica < db.sql
 ```
 ```mysql
 CHANGE REPLICATION SOURCE TO
-SOURCE_HOST='glf-science-cadi.ent.dfo-mpo.ca',  # master server host name
+SOURCE_HOST='dmapps.ent.dfo-mpo.ca',  # master server host name
 SOURCE_USER='replica_user',
 SOURCE_PASSWORD='my_short_password_max_32',
 SOURCE_LOG_FILE='mysql-bin.000001',  # from the SHOW MASTER STATUS command on master
