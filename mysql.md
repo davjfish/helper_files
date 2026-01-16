@@ -186,7 +186,7 @@ On master/source:
 bind-address            = 0.0.0.0
 server-id               = 1  # 1 is arbitray, just needs to be unique amongs all replica servers
 log_bin                       = /var/log/mysql/mysql-bin.log
-binlog_do_db            = dmapps_dev # your specific db name here, repeat line for each db needing replication
+binlog_do_db            = mydb_leader # your specific db name here, repeat line for each db needing replication
 # then: sudo systemctl restart mysql
 ```
 ```mysql
@@ -213,7 +213,7 @@ On slave/replica:
 # set the following:
 server-id               = 2  # 2 is arbitray, just needs to be unique amongs all replica servers
 log_bin                       = /var/log/mysql/mysql-bin.log
-binlog_do_db            = dmapps_replica # your specific db name here, repeat line for each db needing replication
+binlog_do_db            = mydb_leader # your specific db name here, repeat line for each db needing replication
 relay-log               = /var/log/mysql/mysql-relay-bin.log
 # then: sudo systemctl restart mysql
 ```
