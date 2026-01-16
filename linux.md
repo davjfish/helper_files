@@ -43,6 +43,12 @@
 - `find DIR_NAME -type f | wc -l` count all the files in a directory, recursively
 - `sudo grep -rnw '/dir-to-search-recursively-from' -e 'search term'`
 
+### Diagnosis:
+- check the list of disks: `lsblk -f`
+- prerequisite `sudo apt-get install smartmontools`
+- view stats: `sudo smartctl -a /dev/name_of_drive`
+- view disk type, manufacterer, etc: `sudo lshw -C storage`
+
 ### File Compression, decompression and tarballs
 
 (inspired by: [https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/))
