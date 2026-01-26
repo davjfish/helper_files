@@ -215,6 +215,11 @@ server-id               = 2  # 2 is arbitray, just needs to be unique amongs all
 log_bin                       = /var/log/mysql/mysql-bin.log
 binlog_do_db            = mydb_leader # your specific db name here, repeat line for each db needing replication
 relay-log               = /var/log/mysql/mysql-relay-bin.log
+
+# optional, but important to make sure to prevent bin logs taking up too much space
+binlog_expire_logs_seconds      = 2592000    #3 days
+max_binlog_size   = 100M
+
 # then: sudo systemctl restart mysql
 ```
 
