@@ -1,5 +1,16 @@
 # DOCKER NOTES
 
+## when installing use: https://get.docker.com/:
+- `curl -fsSL https://get.docker.com -o get-docker.sh`
+- `sudo sh get-docker.sh`
+
+## general commands:
+- check version `docker version` -> will also confirm that the docker cli can communicate with docker engine
+  - if you wanted to just install CLI and point to a remote docker engine, you can set a local variable called
+    - ` export DOCKER_HOST=ssh://root@remote_host_addr` then `docker version`
+- details about config and setup: `docker info`
+
+
 ### images
 
 - list images on a host `docker images`
