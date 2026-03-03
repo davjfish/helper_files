@@ -1,5 +1,11 @@
 # MySQL Commands
 
+## Install timezone support for mysql:
+
+`mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql`
+
+
+
 ## Connect/Disconnect
 - mysql -h <host> -u <user> -p<passwd>
 - mysql -h <host> -u <user> -p
@@ -131,6 +137,7 @@
 - CREATE USER '[user]'@'[host]' IDENTIFIED WITH mysql_native_password BY '[password]';
 - RENAME USER 'my_user'@'host' TO 'my_new_user'@'host';
 - GRANT ALL PRIVILEGES ON base.* TO '[user]'@'[host]'; (Best to use this one for Django users)
+- GRANT PROCESS ON *.* TO 'user'@'%';  (needed to be able to dump the database)
 - GRANT SELECT, INSERT, DELETE, UPDATE, CREATE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 - REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 - REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
