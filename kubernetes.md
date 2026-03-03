@@ -230,3 +230,10 @@ kubectl uncordon iml-science-n3
 
 May need to increase the pod disruption bubget for the calico pods and increase to >1:
 ![img.png](/screenshots/k8s_pod_disruption_budget.png)
+
+
+
+
+### David's notes about upgrading:
+- go to deployment in Headlamp and find your deployment and restart it
+- do directly from k8s: `kubectl rollout restart deployment andes-mar2026002 -n andes-mar2026002`

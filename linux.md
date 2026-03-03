@@ -433,7 +433,7 @@ https://askubuntu.com/questions/93542/how-to-disable-shutdown-reboot-suspend-hib
   - Described here: https://packetpushers.net/blog/ubuntu-extend-your-default-lvm-space/  
   - `sudo vgdisplay` to see how much the current volume can be expanded
   - `sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv` to expand the volume; confirm with `vgdisplay`
-  - `sudo resize2fs /dev/mapper/ubuntu–vg-ubuntu–lv` to extend the actual filesystem
+  - `sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv` to extend the actual filesystem
 
 
 # Sync with google drive (Rclone)
