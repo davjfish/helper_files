@@ -163,3 +163,8 @@ git push origin -f
 
 ### check the tag of the branch you are currently on
 `git describe --tags HEAD`
+
+
+### Disable ssl
+`git config http.sslVerify false`  # for a single repo
+`git config --global http.sslVerify false` # global
